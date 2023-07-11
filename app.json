@@ -7,9 +7,10 @@
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover",
+      "backgroundColor": "#000"
     },
+    "scheme": "vibla",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -22,11 +23,28 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
+        "backgroundColor": "#000"
+      },
+      "androidNavigationBar": {
+        "backgroundColor": "#000000"
+      },
+      "package": "com.mignonflory.ViblaApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow Vibla to access your photos.",
+          "savePhotosPermission": "Allow Vibla to save photos.",
+          "isAccessMediaLocationEnabled": true
+        }
+      ]
+    ],
+    "infoPlist": {
+      "NSCameraUsageDescription": "This app uses the camera to scan barcodes on event tickets."
     }
   }
 }

@@ -1,0 +1,54 @@
+{
+    "conta": [
+        {
+            "title": "Convide os amigos",
+            "title_icon": "email-outline"
+        },
+        {
+            "title": "Privacidade",
+            "title_icon": "shield-lock-outline"
+        },
+        {
+            "title": "Notificações",
+            "title_icon": "alarm-light-outline"
+        },
+        {
+            "title": "Importar conteúdo do instagram",
+            "title_icon": "instagram"
+        },
+        {
+            "title": "Apoie a Vibla",
+            "title_icon": "hand-heart-outline"
+        },
+        {
+            "title": "Feedback",
+            "title_icon": "account-network-outline"
+        },
+        {
+            "title": "Diretrizes da comunidade",
+            "title_icon": "alpha-v-circle-outline"
+        },
+        {
+            "title": "Política de privacidade",
+            "title_icon": "file-document-outline"
+        },
+        {
+            "title": "Termos de uso",
+            "title_icon": "notebook-outline"
+        },
+        {
+            "title": "Sair",
+            "title_icon": "exit-to-app"
+        }
+    ],
+    "ajuda": [
+        {
+            "title": "Política de privacidade",
+            "title_icon": false
+        },
+        {
+            "title": "Termos de uso",
+            "title_icon": false
+        }
+    ]
+}

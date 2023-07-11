@@ -1,7 +1,18 @@
 export const colors ={
-    dark: "#000",
+    dark: "#000000",
     dark_second: '#474545',
-    white: "#E6E6E6",
-    white_100: "#c9d4d4",
-    dourado: "#ffc454"
+    bgModalDark: "#141414",
+    white: "#FFF",
+    white_100: "#f5f2f2",
+    dourado: "#E6B325",
+    lightGray: "#D3D3D3",
+    darkGray: "#A9A9A9",
+    goldDark: "#61481C",
+    gold: "#E6B325",
+    goldLight: "#BF9742",
+    goldDark500: "#BF9742",
+    danger: "#ff8080",
+    success: "#AFE1AF",
+    successDark: "#026b1e",
+    transparenteGray: "#D3D3D325"
 }

@@ -1,7 +1,12 @@
+import { useNavigation } from '@react-navigation/native'
 import React from 'react'
+import { Pressable } from 'react-native'
 import { Container, ScrollArea, Image, DotArea, Text } from './styles'
 
 const SlideImage = ({ onScroll, item, active }) => {
+
+  const navigation = useNavigation()
+
   return (
     <Container>
       <ScrollArea
@@ -10,18 +15,21 @@ const SlideImage = ({ onScroll, item, active }) => {
         pagingEnabled
         horizontal
       >
-       { item.map((i, index) => (
-           <Image
-                key={index}
-                resizeMode='cover'
-                source={{uri: i}}
-           />
+       {item.map((item, index) => (
+        <Pressable key={index} onPress={() => navigation.navigate("event", {
+          data: item
+        })}>
+          <Image
+            resizeMode='cover'
+            source={{uri: item}}
+          />
+        </Pressable>
        ))}   
       </ScrollArea>
       <DotArea>
-          { item.map((img, index) => (
-              <Text active={index == active} key={index}>●</Text>
-          ))}
+        {item.map((img, index) => (
+          <Text active={index == active} key={index}>●</Text>
+        ))}
       </DotArea>
     </Container>
   )

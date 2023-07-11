@@ -14,7 +14,6 @@ import {
 
 
 const SlideDiscover = ({ item, title, count, icon }) => {
-  console.log(item)
   return (
     <Container>
       <HeaderArea>

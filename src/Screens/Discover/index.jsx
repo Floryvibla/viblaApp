@@ -1,4 +1,4 @@
-import { View, Text, Dimensions } from 'react-native'
+import { View, Text, Dimensions, Pressable } from 'react-native'
 import React, { useState } from 'react'
 import { colors } from "../../Constants/styles"
 import StoryCard from '../../Components/Stories'
@@ -6,22 +6,25 @@ import Post from '../../Components/Post'
 import Search from '../../Components/Search'
 import { Container } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
-import { othersConstants } from '../../Constants/redux'
+import { othersConstants } from '../../redux/constants'
 import { data } from '../../datas/discover'
 import SlideImage from '../../Components/Slide'
 import SlideDiscover from '../../Components/SlideDiscover'
+import { SafeArea, ScrollArea } from '../../Components/styles'
+import { useNavigation } from '@react-navigation/native'
 
-const Discover = ({ navigation }) => {
+const Discover = () => {
   const dispatch= useDispatch()
+  const navigation = useNavigation()
   const { openSearch } = useSelector(state => state.others)
   const W= Dimensions.get('window').height
   const [imageActive, setImageActive] = useState(0)
 
-  const images= ['https://scontent.fcgh14-1.fna.fbcdn.net/v/t1.6435-9/86822069_2521595954613134_6426990676642103296_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=340051&_nc_eui2=AeGMj7HOo4_1KT5Smv4FaivFfT7EoXZKYlh9PsShdkpiWN1594B4uUwtcn3PjhTyW0L6Rs9mvvu1xRcfVzWaLEio&_nc_ohc=XReOMtBRlLcAX9EQbsP&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT_vnnniq4PiXaHxFSfpySugPLUC4D7yCNMWb-zi7Txz0Q&oe=626E5138',
-  'https://developers.google.com/codelabs/maps-platform/maps-platform-101-js/img/590815267846f166.png?hl=pt-br',
-  'https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/277554234_4976531939134605_6413802417062590819_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeHo4vdtRHsHcVO7hO1Vq87RIUH4EWwZ6nghQfgRbBnqeK6chWJjKXdjI2IPfBEv-DDg0utlxNjjhqO8Iqzi0BEs&_nc_ohc=Edj8HMhGgRkAX_P78U2&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT9a76pYITQmTRw2pAZzM6zP7610fQO1S3g83fSJ0TgZPg&oe=624E77DE',
-  'https://scontent.fcgh14-1.fna.fbcdn.net/v/t1.6435-9/132009624_1458027454404160_5883947454541786915_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=340051&_nc_eui2=AeGrFszgEsn2vxjI15e8BtvfFQb5yRXofGkVBvnJFeh8aVYmYS9lZ2MqaWNW30BY9-hIU_3ZqcnMQNPUaJC93aJe&_nc_ohc=6fVsjVsK_A0AX9c5cz3&tn=OOU8fMa9MEFRp_YP&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT--s3rlDP4aswIVFXOnse9ILjO0hUMuuYgMV0TUMGVWxA&oe=626EC9AF',
-  'https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/275888318_2490091601125826_8476799898796478399_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=8bfeb9&_nc_eui2=AeGXrYMQoxDHwZzs0diDPJKE1IZMzY_TFXTUhkzNj9MVdAZAhnCwwtUJ-1UupjLANLhrqAga6_vlFQWPeVtGrOBp&_nc_ohc=KiCf69mHS5YAX8Ngvfz&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT_XxMES8Ez9-kwlRX84RS-fiCWumAb9PpS7-uO7U3pqeg&oe=624DC23B',
+  const images= ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGDKlrEl8nuM4ScTybjh-NLgcT2O6uLthkVw&usqp=CAU',
+  'https://pps.whatsapp.net/v/t61.24694-24/204812481_606052734227264_1729602996482981335_n.jpg?ccb=11-4&oh=01_AVwwt1-w3parhyQTyvZfTi4bBWpPTljBrh8zhTHkstx7qA&oe=633943D2',
+  'https://scontent.fcgh14-1.fna.fbcdn.net/v/t1.6435-9/84487336_2974456285953289_3959418685327671296_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=340051&_nc_ohc=8KxFKyEP82sAX-DP7RP&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT8l6_9XU2Rtl75iSHxAis-KsMSiD_-feKgBlddlL5XN8Q&oe=634F2104',
+  'https://images.sympla.com.br/61856a01f386d-lg.png',
+  'https://espacopop.com.br/wp-content/uploads/2022/09/A-Mulher-Rei-820x380.png',
 ]
 
   const renderStory= ({ item } ) => (
@@ -47,11 +50,10 @@ const Discover = ({ navigation }) => {
         setImageActive(slide)
       }
     }
-    // console.log(e);
   }
 
   return (
-    <Container>
+    <ScrollArea style={{backgroundColor: colors.dark}}>
       <Search onPressIn={handleOpen} state={openSearch} navigation={navigation} />
       <SlideImage 
         onScroll={handleScroll} 
@@ -68,7 +70,7 @@ const Discover = ({ navigation }) => {
           item={i.data}
         />
       ))}
-    </Container>
+    </ScrollArea>
   )
 }
 

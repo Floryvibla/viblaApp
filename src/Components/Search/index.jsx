@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { othersConstants } from '../../Constants/redux'
+import { othersConstants } from '../../redux/constants'
 import { Container, BtnBack, IconBack ,Content, IconSearch, Input, BtnClose ,IconCLose, BtnSearch, TextSearch } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 

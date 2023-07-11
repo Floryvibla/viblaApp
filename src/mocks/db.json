@@ -1,0 +1,248 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "userId": 1,
+            "type": "video",
+            "info": "https://assets.mixkit.co/videos/preview/mixkit-talented-freestyle-soccer-player-juggling-the-ball-43519-large.mp4",
+            "description": "Jogador de futebol de estilo livre talentoso fazendo malabarismo com a bola Talento do futebol freestyle fazendo malabarismo com a bola com grande destreza com os pés e a cabeça, em um estacionamento escuro e vazio.",
+            "localização": null,
+            "music": "Thequebras - banzo"
+        },
+        {
+            "id": 2,
+            "userId": 1,
+            "type": "photo",
+            "info": "https://images.nappy.co/avatar/starnes-47561611431276wrbw3iaio9.jpg?auto=format&fm=jpg&",
+            "description": "Aqui é a descrição da foto",
+            "localização": "Aparelha luzia",
+            "music": null
+        },
+        {
+            "id": 3,
+            "userId": 1,
+            "type": "text",
+            "info": "Talento do futebol freestyle fazendo malabarismo com a bola com grande destreza com os pés e a cabeça, em um estacionamento escuro e vazio.",
+            "description": null,
+            "localização": "Em casa",
+            "music": null
+        }
+    ],
+    "notification": [
+        {
+            "id": 1,
+            "username": "thequebras",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/304919057_542080411252672_5856418987317125357_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=xdnlWw9ZLCMAX-YusPN&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT-BeInAVO5-nikD9Z2ulSK07yX9RgP6KK10WsoRCya4Ww&oe=6338DEE4",
+            "type": "video",
+            "open": true,
+            "action": "like",
+            "info": "https://images.nappy.co/uploads/large/21595552694z0c13thuqxiujgny36yqmokra5hqnmhvuvy4m51gtfw6r3z3oe0nbb6uhgv16bbjeshvrnwjpjsveztqpel2slpm02dhbwwfe9e4.jpg?auto=format&w=1280&q=75"
+        },
+        {
+            "id": 9,
+            "username": "lucasoliveira",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t1.6435-9/87185550_3204654002881279_1379605678011711488_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=on1mgq2Vf1EAX92Sh4Z&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT-gp8B1XY0Dc7z1VY9hf9hNfUVNIcEjudR3QM5f1D8P7g&oe=635BAE42",
+            "type": "follow",
+            "open": false,
+            "action": false,
+            "info": false
+        },
+        {
+            "id": 2,
+            "username": "talitalima",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/269756467_1536625586697282_2867368222745914260_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Fe3-0QPLff4AX-LSIPS&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT_S2kFU1xv3AMiWoDxKvKobNCPphGAGKcibnoNPRrcoeg&oe=6339DED3",
+            "type": "text",
+            "open": false,
+            "action": "comment",
+            "info": "Você sabe que a Vibla é uma rede fechada. Na primeira versão, precisaria pedir o acesso. Desta versão o usuário poderia convidar os outros usuários a entrar na rede, porém seria muito importante convidar quem for o público da VB."
+        },
+        {
+            "id": 10,
+            "username": "talitalima",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/269756467_1536625586697282_2867368222745914260_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Fe3-0QPLff4AX-LSIPS&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT_S2kFU1xv3AMiWoDxKvKobNCPphGAGKcibnoNPRrcoeg&oe=6339DED3",
+            "type": "follow",
+            "open": true,
+            "action": false,
+            "info": false
+        },
+        {
+            "id": 3,
+            "username": "troglobio",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/274921893_2361083404027753_473869416284321311_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=ddmm3PyVBsYAX9XYzx8&tn=Yy8ciXARH8i-0Smg&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT8YyoQiOB7C5dCzycDXLHiWBLaMgnhR6Vh8bDVSPHZePg&oe=6339F69D",
+            "type": "text",
+            "open": false,
+            "action": "comment",
+            "info": "Você sabe que a Vibla é uma rede fechada. Na primeira versão, precisaria pedir o acesso. Desta versão o usuário poderia convidar os outros usuários a entrar na rede, porém seria muito importante convidar quem for o público da VB."
+        },
+        {
+            "id": 4,
+            "username": "troglobio",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/274921893_2361083404027753_473869416284321311_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=ddmm3PyVBsYAX9XYzx8&tn=Yy8ciXARH8i-0Smg&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT8YyoQiOB7C5dCzycDXLHiWBLaMgnhR6Vh8bDVSPHZePg&oe=6339F69D",
+            "type": "photo",
+            "open": true,
+            "action": "like",
+            "info": "https://images.nappy.co/uploads/large/7z8a0831-hi-res-21595537952lr9cpn99qapkwc4bmbedylold89bpxwoxjreigajzjtxvlkn1ku1mhcgr1vbpcqi78utujefgpvvsupizdhjd4od6idry2laxmwa.jpg?auto=format&w=1280&q=75"
+        },
+        {
+            "id": 5,
+            "username": "thequebras",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/304919057_542080411252672_5856418987317125357_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=xdnlWw9ZLCMAX-YusPN&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT-BeInAVO5-nikD9Z2ulSK07yX9RgP6KK10WsoRCya4Ww&oe=6338DEE4",
+            "type": "photo",
+            "open": true,
+            "action": "like",
+            "info": "https://images.nappy.co/uploads/large/28031608866439e405i9cqxls6arlodb6nnm7osaq9tx9vji5py1yum0408zzkixxmgorcpy0i4uxshypgm6bloilanbvkhfokhr4mr3fmesencb2b.jpg?auto=format&w=1280&q=75"
+        },
+        {
+            "id": 6,
+            "username": "talitalima",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/269756467_1536625586697282_2867368222745914260_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Fe3-0QPLff4AX-LSIPS&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT_S2kFU1xv3AMiWoDxKvKobNCPphGAGKcibnoNPRrcoeg&oe=6339DED3",
+            "type": "text",
+            "open": false,
+            "action": "like",
+            "info": "Você sabe que a Vibla é uma rede fechada. Na primeira versão, precisaria pedir o acesso. Desta versão o usuário poderia convidar os outros usuários a entrar na rede, porém seria muito importante convidar quem for o público da VB."
+        },
+        {
+            "id": 7,
+            "username": "troglobio",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/274921893_2361083404027753_473869416284321311_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=ddmm3PyVBsYAX9XYzx8&tn=Yy8ciXARH8i-0Smg&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT8YyoQiOB7C5dCzycDXLHiWBLaMgnhR6Vh8bDVSPHZePg&oe=6339F69D",
+            "type": "text",
+            "open": false,
+            "action": "like",
+            "info": "Você sabe que a Vibla é uma rede fechada. Na primeira versão, precisaria pedir o acesso. Desta versão o usuário poderia convidar os outros usuários a entrar na rede, porém seria muito importante convidar quem for o público da VB."
+        },
+        {
+            "id": 8,
+            "username": "troglobio",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/274921893_2361083404027753_473869416284321311_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=ddmm3PyVBsYAX9XYzx8&tn=Yy8ciXARH8i-0Smg&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT8YyoQiOB7C5dCzycDXLHiWBLaMgnhR6Vh8bDVSPHZePg&oe=6339F69D",
+            "type": "video",
+            "open": true,
+            "action": "like",
+            "info": "https://images.nappy.co/uploads/large/28031608866439e405i9cqxls6arlodb6nnm7osaq9tx9vji5py1yum0408zzkixxmgorcpy0i4uxshypgm6bloilanbvkhfokhr4mr3fmesencb2b.jpg?auto=format&w=1280&q=75"
+        }
+        
+    ],
+    "my_series": [
+        {
+            "id": 1,
+            "title": "Cabelos",
+            "cover": "https://instagram.fcgh14-1.fna.fbcdn.net/v/t51.2885-15/278833855_134256172524001_7202144835350187553_n.webp?stp=dst-jpg_e35&_nc_ht=instagram.fcgh14-1.fna.fbcdn.net&_nc_cat=101&_nc_ohc=IjTeZRoJThAAX97xFoZ&tn=-pLS70RTw6eDJNFI&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=MjgyMDk0NDk0MTM4NTEwMTM5OQ%3D%3D.2-ccb7-5&oh=00_AT9rHPAId4sCsp12rs1pGmHHoFJBRCZAOMOuB0TN47DfZQ&oe=6343DE58&_nc_sid=30a2ef",
+            "total": 3
+        },
+        {
+            "id": 2,
+            "title": "Cuidados",
+            "cover": "https://instagram.fcgh14-1.fna.fbcdn.net/v/t51.2885-15/300982425_810293263467327_3382504045427779779_n.webp?stp=dst-jpg_e35&_nc_ht=instagram.fcgh14-1.fna.fbcdn.net&_nc_cat=103&_nc_ohc=W9-zsAll3aQAX_XJ2xK&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=MjkxMDYzNjAyMjY2MjEyNjAxNw%3D%3D.2-ccb7-5&oh=00_AT-TzlSdFvPO52N1rT-hMM2kiFQVwfa8MhN5B-Dydw2hKg&oe=634490E3&_nc_sid=30a2ef",
+            "total": 10
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "username": "thequebras",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/304919057_542080411252672_5856418987317125357_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=xdnlWw9ZLCMAX-YusPN&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT-BeInAVO5-nikD9Z2ulSK07yX9RgP6KK10WsoRCya4Ww&oe=6338DEE4",
+            "type": "video",
+            "open": true,
+            "action": "like",
+            "info": "https://images.nappy.co/uploads/large/21595552694z0c13thuqxiujgny36yqmokra5hqnmhvuvy4m51gtfw6r3z3oe0nbb6uhgv16bbjeshvrnwjpjsveztqpel2slpm02dhbwwfe9e4.jpg?auto=format&w=1280&q=75"
+        },
+        {
+            "id": 9,
+            "username": "lucasoliveira",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t1.6435-9/87185550_3204654002881279_1379605678011711488_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=on1mgq2Vf1EAX92Sh4Z&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT-gp8B1XY0Dc7z1VY9hf9hNfUVNIcEjudR3QM5f1D8P7g&oe=635BAE42",
+            "type": "follow",
+            "open": false,
+            "action": false,
+            "info": false
+        },
+        {
+            "id": 2,
+            "username": "talitalima",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/269756467_1536625586697282_2867368222745914260_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Fe3-0QPLff4AX-LSIPS&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT_S2kFU1xv3AMiWoDxKvKobNCPphGAGKcibnoNPRrcoeg&oe=6339DED3",
+            "type": "text",
+            "open": false,
+            "action": "comment",
+            "info": "Você sabe que a Vibla é uma rede fechada. Na primeira versão, precisaria pedir o acesso. Desta versão o usuário poderia convidar os outros usuários a entrar na rede, porém seria muito importante convidar quem for o público da VB."
+        },
+        {
+            "id": 10,
+            "username": "talitalima",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/269756467_1536625586697282_2867368222745914260_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Fe3-0QPLff4AX-LSIPS&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT_S2kFU1xv3AMiWoDxKvKobNCPphGAGKcibnoNPRrcoeg&oe=6339DED3",
+            "type": "follow",
+            "open": true,
+            "action": false,
+            "info": false
+        },
+        {
+            "id": 3,
+            "username": "troglobio",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/274921893_2361083404027753_473869416284321311_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=ddmm3PyVBsYAX9XYzx8&tn=Yy8ciXARH8i-0Smg&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT8YyoQiOB7C5dCzycDXLHiWBLaMgnhR6Vh8bDVSPHZePg&oe=6339F69D",
+            "type": "text",
+            "open": false,
+            "action": "comment",
+            "info": "Você sabe que a Vibla é uma rede fechada. Na primeira versão, precisaria pedir o acesso. Desta versão o usuário poderia convidar os outros usuários a entrar na rede, porém seria muito importante convidar quem for o público da VB."
+        },
+        {
+            "id": 4,
+            "username": "troglobio",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/274921893_2361083404027753_473869416284321311_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=ddmm3PyVBsYAX9XYzx8&tn=Yy8ciXARH8i-0Smg&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT8YyoQiOB7C5dCzycDXLHiWBLaMgnhR6Vh8bDVSPHZePg&oe=6339F69D",
+            "type": "photo",
+            "open": true,
+            "action": "like",
+            "info": "https://images.nappy.co/uploads/large/7z8a0831-hi-res-21595537952lr9cpn99qapkwc4bmbedylold89bpxwoxjreigajzjtxvlkn1ku1mhcgr1vbpcqi78utujefgpvvsupizdhjd4od6idry2laxmwa.jpg?auto=format&w=1280&q=75"
+        },
+        {
+            "id": 5,
+            "username": "thequebras",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/304919057_542080411252672_5856418987317125357_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=xdnlWw9ZLCMAX-YusPN&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT-BeInAVO5-nikD9Z2ulSK07yX9RgP6KK10WsoRCya4Ww&oe=6338DEE4",
+            "type": "photo",
+            "open": true,
+            "action": "like",
+            "info": "https://images.nappy.co/uploads/large/28031608866439e405i9cqxls6arlodb6nnm7osaq9tx9vji5py1yum0408zzkixxmgorcpy0i4uxshypgm6bloilanbvkhfokhr4mr3fmesencb2b.jpg?auto=format&w=1280&q=75"
+        },
+        {
+            "id": 6,
+            "username": "talitalima",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/269756467_1536625586697282_2867368222745914260_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Fe3-0QPLff4AX-LSIPS&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT_S2kFU1xv3AMiWoDxKvKobNCPphGAGKcibnoNPRrcoeg&oe=6339DED3",
+            "type": "text",
+            "open": false,
+            "action": "like",
+            "info": "Você sabe que a Vibla é uma rede fechada. Na primeira versão, precisaria pedir o acesso. Desta versão o usuário poderia convidar os outros usuários a entrar na rede, porém seria muito importante convidar quem for o público da VB."
+        },
+        {
+            "id": 7,
+            "username": "troglobio",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/274921893_2361083404027753_473869416284321311_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=ddmm3PyVBsYAX9XYzx8&tn=Yy8ciXARH8i-0Smg&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT8YyoQiOB7C5dCzycDXLHiWBLaMgnhR6Vh8bDVSPHZePg&oe=6339F69D",
+            "type": "text",
+            "open": false,
+            "action": "like",
+            "info": "Você sabe que a Vibla é uma rede fechada. Na primeira versão, precisaria pedir o acesso. Desta versão o usuário poderia convidar os outros usuários a entrar na rede, porém seria muito importante convidar quem for o público da VB."
+        },
+        {
+            "id": 8,
+            "username": "troglobio",
+            "avatar": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t39.30808-6/274921893_2361083404027753_473869416284321311_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=ddmm3PyVBsYAX9XYzx8&tn=Yy8ciXARH8i-0Smg&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT8YyoQiOB7C5dCzycDXLHiWBLaMgnhR6Vh8bDVSPHZePg&oe=6339F69D",
+            "type": "video",
+            "open": true,
+            "action": "like",
+            "info": "https://images.nappy.co/uploads/large/28031608866439e405i9cqxls6arlodb6nnm7osaq9tx9vji5py1yum0408zzkixxmgorcpy0i4uxshypgm6bloilanbvkhfokhr4mr3fmesencb2b.jpg?auto=format&w=1280&q=75"
+        }
+        
+    ],
+    "hashtags": [
+        {
+            "id": 1,
+            "title": "#love",
+            "info": "35,3 milhões publicações"
+        },
+        {
+            "id": 2,
+            "title": "#cabelos",
+            "info": "10,2 milhões publicações"
+        },
+        {
+            "id": 3,
+            "title": "#lifestyle",
+            "info": "2 milhões publicações"
+        }
+    ]
+}

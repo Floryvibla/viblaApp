@@ -1,7 +1,6 @@
 import React from 'react'
 import { Platform } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import StackNavigation from './StackNavigation';
 import { colors } from '../Constants/styles'
 import { AntDesign } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
@@ -11,69 +10,81 @@ import DiscoverScreen from '../Screens/Discover';
 import ChatScreen from '../Screens/Chat';
 import PostScreen from '../Screens/Post';
 import ProfileScreen from '../Screens/Profile';
+import VideoScreen from '../Screens/Video';
+import { SafeArea } from '../Components/styles';
+import Notification from '../Screens/Notification';
+import AddPost from '../Screens/Post';
 
 
 function TabBottomNavigation() {
     // <Ionicons name="md-person-outline" size={24} color="black" />
     // <AntDesign name="plus" size={24} color="black" />
-  const Tab= createBottomTabNavigator()
-
-    const getTabBarVisibility = (route) => {
-        const routeName = route.state
-            ? route.state.routes[route.state.index].name
-            : '';
-
-        if (routeName === 'Chat' ) {
-            return false;
-        }
-
-        return true;
-    }
+  const { Navigator, Screen }= createBottomTabNavigator()
+  const size = 20
+//   Platform.OS === "ios" ? 25 : 25
 
   return (
-    <Tab.Navigator 
-        screenOptions={{ 
-            headerShown: false,
-            tabBarActiveTintColor: colors.dourado,
-            tabBarInactiveTintColor: colors.white,
-            tabBarShowLabel: false,
-            tabBarStyle: {
-                height: 45,
-                backgroundColor: "#000",
-                borderTopColor: "transparent"
-            }
-        }}
-    >
-        <Tab.Screen name="Main" component={HomeScreen} options={{
-            tabBarIcon: ({color, size}) => (
-                <AntDesign name="home" size={size} color={color} />
-            ),
-        }} />
-        <Tab.Screen name="Discover" component={DiscoverScreen} options={{
-                tabBarIcon: ({color, size}) => (
-                    <Fontisto name="world-o" size={size} color={color} />
+    <SafeArea>
+        <Navigator 
+            screenOptions={{ 
+                headerShown: false,
+                tabBarActiveTintColor: colors.dourado,
+                tabBarInactiveTintColor: colors.white,
+                tabBarShowLabel: false,
+                tabBarStyle: {
+                    height: 45,
+                    backgroundColor: colors.dark,
+                    borderTopColor: "#cecece4f",
+                },
+            }}
+        >
+            <Screen name="Main" component={HomeScreen} options={{
+                tabBarIcon: ({color}) => (
+                    <AntDesign name="home" size={size} color={color} />
                 ),
-            }}
-        />
-        <Tab.Screen name="Add" component={PostScreen} options={{
-                tabBarIcon: ({color, size}) => (
-                    <AntDesign name="plus" size={size} color={color} />
-                )
-            }}
-        />
-        <Tab.Screen name="Chat" component={ChatScreen} options={{
-                tabBarIcon: ({color, size}) => (
-                    <Ionicons name="chatbox-ellipses-outline" size={size} color={color} />
-                )
-            }}
-        />
-        <Tab.Screen name="Profile" component={ProfileScreen} options={{
-                tabBarIcon: ({color, size}) => (
-                    <Ionicons name="md-person-outline" size={size} color={color} />
-                )
-            }}
-        />
-    </Tab.Navigator>
+            }} />
+            <Screen name="Discover" component={DiscoverScreen} options={{
+                    tabBarIcon: ({color}) => (
+                        <Fontisto name="world-o" size={size} color={color} />
+                    ),
+                }}
+            />
+            <Screen name="Add" component={AddPost} options={{
+                    tabBarIcon: ({color}) => (
+                        <Ionicons 
+                            name="ios-add-circle-outline" 
+                            size={size * 1.8} 
+                            color={color}
+                        />
+                    ),
+                    tabBarStyle: {
+                        display: "none"
+                    }
+                }}
+            />
+            <Screen name="notification" component={Notification} options={{
+                    tabBarIcon: ({color}) => (
+                        <Ionicons 
+                            name="notifications" 
+                            size={size} 
+                            color={color} 
+                        />
+                    )
+                }}
+            />
+            <Screen name="Profile" component={ProfileScreen} options={{
+                    tabBarIcon: ({color}) => (
+                        <Ionicons  
+                            name="md-person-outline" 
+                            size={size} 
+                            color={color} 
+                        />
+                    )
+                }}
+                
+            />
+        </Navigator>
+    </SafeArea>
   )
 }
 
