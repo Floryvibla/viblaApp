@@ -1,16 +1,16 @@
 import { View, Text, Dimensions, Pressable } from 'react-native'
 import React, { useState } from 'react'
 import { colors } from "../../Constants/styles"
-import StoryCard from '../../Components/Stories'
-import Post from '../../Components/Post'
-import Search from '../../Components/Search'
+import StoryCard from '../../components/Stories'
+import Post from '../../components/Post'
+import Search from '../../components/Search'
 import { Container } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { othersConstants } from '../../redux/constants'
 import { data } from '../../datas/discover'
-import SlideImage from '../../Components/Slide'
-import SlideDiscover from '../../Components/SlideDiscover'
-import { SafeArea, ScrollArea } from '../../Components/styles'
+import SlideImage from '../../components/Slide'
+import SlideDiscover from '../../components/SlideDiscover'
+import { SafeArea, ScrollArea } from '../../components/styles'
 import { useNavigation } from '@react-navigation/native'
 
 const Discover = () => {

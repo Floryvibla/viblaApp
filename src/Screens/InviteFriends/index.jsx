@@ -3,15 +3,15 @@ import { Dimensions, Pressable, Share, View } from 'react-native'
 import * as Clipboard from 'expo-clipboard';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { colors } from "../../Constants/styles"
-import { Area, Card, ListArea, ScrollArea, Text, Touch, Wrapper } from '../../Components/styles'
-import HeaderBack from '../../Components/Header/HeaderBack'
+import { Area, Card, ListArea, ScrollArea, Text, Touch, Wrapper } from '../../components/styles'
+import HeaderBack from '../../components/Header/HeaderBack'
 import { PostArea } from '../Home/styles'
 import { useDispatch } from 'react-redux'
-import BarOption from '../../Components/Bar'
+import BarOption from '../../components/Bar'
 import { useNavigation } from '@react-navigation/native'
 import { othersActions } from '../../redux/actions/others.actions'
-import CirclePerfil from '../../Components/Others/CirclePerfil'
-import ButtonAction from '../../Components/Button';
+import CirclePerfil from '../../components/Others/CirclePerfil'
+import ButtonAction from '../../components/Button';
 
 const InviteFriends = () => {
 

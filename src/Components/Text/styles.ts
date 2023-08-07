@@ -1,19 +1,21 @@
 import styled from "styled-components/native"
 import { colors } from "../../Constants/styles"
+import { TextProps as TextPropsRN } from 'react-native'
 
 
 export type VariantTextProps = 'title' | 'subtitle' | 'body' | 'secondary' | 'follow'
 export type TypeTextProps = 'danger' | 'warn' | 'success'
 export type WeightTextProps = number | 'bold'
 
-interface TextProps {
-    variant: VariantTextProps
+export type TextStyledProps = TextPropsRN & {
+    variant?: VariantTextProps
     type?: TypeTextProps
     color?: keyof typeof colors
     weight?: WeightTextProps
+    align?: 'left' | 'center' | 'right'
 }
 
-const handelSize = ({ variant }: TextProps) => {
+const handelSize = ({ variant }: TextStyledProps) => {
     switch (variant) {
         case 'title':
             return '20px';
@@ -28,7 +30,7 @@ const handelSize = ({ variant }: TextProps) => {
     }
 }
 
-const handelWeight = ({ variant }: TextProps) => {
+const handelWeight = ({ variant }: TextStyledProps) => {
     switch (variant) {
         case 'title':
             return 'bold';
@@ -39,12 +41,12 @@ const handelWeight = ({ variant }: TextProps) => {
     }
 }
 
-const handelColor = ({ variant }: TextProps) => {
+const handelColor = ({ variant }: TextStyledProps) => {
     switch (variant) {
         case 'secondary':
             return colors.darkGray;
         case 'follow':
-            return colors.dark;
+            return colors.white_100;
         default:
             return colors.white;
     }
@@ -59,9 +61,9 @@ const handelColorType = (type: TypeTextProps) => {
     }
 }
 
-export const TextStyled = styled.Text<TextProps>`
+export const TextStyled = styled.Text<TextStyledProps>`
     font-size: ${({ variant }) => handelSize({variant})};
     font-weight: ${({ variant, weight }) => weight ?? handelWeight({variant})};
     color: ${({ variant, type, color }) => color ? colors[color] : type ? handelColorType(type) : handelColor({variant})};
-    text-align: left;
+    text-align: ${({ align }) => align ?? 'left'};
 `

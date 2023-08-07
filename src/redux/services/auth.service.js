@@ -30,6 +30,8 @@ function auth(dataUser) {
 async function getMe(userToken) {
     const getTokenUser = await getToken()
     const token =  typeof getTokenUser.token !== 'undefined' ? getTokenUser.token : userToken
+
+    console.log("Token: ", token);
     
     return httpInterno.get(`/users/me?populate=*`, {headers: {"Authorization" : `Bearer ${token}`}})
 }

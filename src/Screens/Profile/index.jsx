@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { colors } from "../../Constants/styles"
-import StoryCard from '../../Components/Stories'
-import { Area, ScrollArea, Text, Touch, Wrapper } from '../../Components/styles'
-import HeaderBack from '../../Components/Header/HeaderBack'
-import CardProfile from '../../Components/CardProfile'
+import StoryCard from '../../components/Stories'
+import { Area, ScrollArea, Text, Touch, Wrapper } from '../../components/styles'
+import HeaderBack from '../../components/Header/HeaderBack'
+import CardProfile from '../../components/CardProfile'
 import { data } from '../../datas/fakeStories'
-import FeedPost from '../../Components/Post/FeedPost'
+import FeedPost from '../../components/Post/FeedPost'
 import { Pressable } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 

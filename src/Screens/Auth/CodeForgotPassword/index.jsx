@@ -2,11 +2,11 @@ import React, { useRef } from 'react'
 import Logo from "../../../Assets/vibla/icon_white.png"
 import { Area, LogoImage } from '../Welcome/styles'
 import dataLanguage from "../../../mocks/language/ptBR.json"
-import { Button, ButtonLinearGradient, Text, TextInput, Wrapper, Touch, AreaFormKeyBoard } from '../../../Components/styles'
+import { Button, ButtonLinearGradient, Text, TextInput, Wrapper, Touch, AreaFormKeyBoard } from '../../../components/styles'
 import { colors } from '../../../Constants/styles'
 import { Platform, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import HeaderBack from '../../../Components/Header/HeaderBack'
+import HeaderBack from '../../../components/Header/HeaderBack'
 
 export const CodeForgotPassword = () => {
 

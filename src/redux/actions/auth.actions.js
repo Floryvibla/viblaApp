@@ -47,7 +47,7 @@ function auth(userData) {
         authService.auth(userData)
         .then( res => {
           console.log("Successfully authenticated: ", res.data);
-            authService.getMe(res.data.jwt)
+            authService.getMe(res?.data?.jwt)
             .then(async response => {
                 const data = {...response.data, token: res.data.jwt}
                 dispatch({
@@ -71,7 +71,7 @@ function auth(userData) {
                     type: authConstants.AUTH_FAIL,
                     payload: error
                 })
-                console.log(error);
+                console.log(error.response.data.error);
             })
         })
         .catch(error => {

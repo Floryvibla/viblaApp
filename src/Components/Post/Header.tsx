@@ -1,10 +1,13 @@
-import { Alert, Pressable, View } from 'react-native'
+import { Alert, Pressable, TouchableOpacity, View } from 'react-native'
 import React, { useRef, useState } from 'react'
 import styled from "styled-components/native"
 import CirclePerfil from '../Others/CirclePerfil'
 import { colors } from "../../Constants/styles"
 import { FontAwesome } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 import { useSelector } from 'react-redux'
 import { PostDataDto } from '../../dtos/postsDtos'
 import Avatar from '../Avatar'
@@ -28,12 +31,16 @@ const Header = ({
     url_avatar,
     createdAt,
     isActiveOptionsPost,
-    onPressDot
+    onLiked,
+    // liked_posts,
+    onComment,
+    onShared
 }: PostDataDto) => {
 
     const { isAuth } = useSelector((state: any) => state.auth)
     const [follow, setfollow] = useState(false)
     const [save, setSave] = useState(false)
+    const [isLiked, setIsLiked] = useState(true)
     
 
     // const auth = isAuth.id === idUser
@@ -44,18 +51,32 @@ const Header = ({
     <Area>
         <AreaPerfil>
             <Avatar source={url_avatar} />
-            <AreaText>
-                <TextUI variant='subtitle'>{username}</TextUI>
-                <TextUI variant='secondary'>{createdAt}</TextUI>
-            </AreaText>
+            <WraperHeader>
+                <ContentWrapperHeader style={{gap: 10}}>
+                    <TextUI variant='subtitle' style={{fontWeight: '400', fontSize: 18}}>{username}</TextUI>
+                    {/* <ButtonFollow isFollow={false}>
+                        <TextUI variant='follow'>Seguir</TextUI>
+                    </ButtonFollow> */}
+                </ContentWrapperHeader>
+                
+                <ContentWrapperHeader>
+                    <FontAwesome name="photo" size={13} color={colors.white} />
+                    <TextUI style={{fontSize: 13}}>Fotos</TextUI>
+                    <TextUI style={{fontSize: 7}}>-</TextUI>
+                    <MaterialIcons name="public" size={13} color={colors.white} />
+                    <TextUI style={{fontSize: 7}}>-</TextUI>
+                    <TextUI style={{fontSize: 13}}>{createdAt}</TextUI>
+                </ContentWrapperHeader>
+            </WraperHeader>
         </AreaPerfil>
         <AreaFollow>
-            {/* <ButtonFollow isFollow={false}>
-                <TextUI variant='follow'>Seguir</TextUI>
-            </ButtonFollow> */}
-            <Pressable onPress={onPressDot}>
-                <IconDot color={isActiveOptionsPost} name="dots-horizontal" />
-            </Pressable>
+            <TouchableOpacity onPress={() => setIsLiked(prev => !prev)}>
+                <FontAwesome 
+                    name={isLiked ? "heart" : "heart-o"} 
+                    size={25} 
+                    color={isLiked ? colors.goldDark500 : colors.white} 
+                />
+            </TouchableOpacity>
         </AreaFollow>
     </Area>
   )
@@ -70,9 +91,18 @@ export const Area = styled.View`
 `
 export const AreaPerfil = styled.View`
     flex-direction: row;
-    gap: 10px;
+    align-items: center;
+    gap: 12px;
 `
-export const AreaText = styled.View`
+export const WraperHeader = styled.View`
+    justify-content: center;
+    gap: 1px;
+`
+export const ContentWrapperHeader = styled.View`
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 5px
 `
 export const AreaFollow = styled.View`
     flex-direction: row;
@@ -80,9 +110,11 @@ export const AreaFollow = styled.View`
     gap: 5px;
 `
 export const ButtonFollow = styled.Pressable<ButtonFollowProps>`
-    background-color: ${({isFollow}) => isFollow ? colors.white_100 : colors.dourado};
-    border-radius: 5px;
-    padding: 2px 5px;
+    background-color: ${({isFollow}) => isFollow ? colors.gold : 'transparent'};
+    border-radius: 50px;
+    border-width: ${({isFollow}) => isFollow ? 0 : 1}px;
+    border-color: ${colors.white_100};
+    padding: 2px 15px;
 `
 export const IconDot = styled(MaterialCommunityIcons)<IconDotProps>`
     color: ${({ isActive }) => isActive ? colors.dourado : colors.darkGray};

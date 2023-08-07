@@ -3,16 +3,16 @@ import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { colors } from "../../Constants/styles"
 import * as Linking from 'expo-linking'
-import StoryCard from '../../Components/Stories'
-import { Area, ListArea, ScrollArea, Text, Touch, Wrapper } from '../../Components/styles'
-import HeaderBack from '../../Components/Header/HeaderBack'
-import CardProfile from '../../Components/CardProfile'
-import FeedPost from '../../Components/Post/FeedPost'
+import StoryCard from '../../components/Stories'
+import { Area, ListArea, ScrollArea, Text, Touch, Wrapper } from '../../components/styles'
+import HeaderBack from '../../components/Header/HeaderBack'
+import CardProfile from '../../components/CardProfile'
+import FeedPost from '../../components/Post/FeedPost'
 import { ImageBackground, Pressable, View } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import BarFollow from '../../Components/Bar/BarFollow'
-import CardEvent from '../../Components/Cards/CardEvent'
-import ButtonAction from '../../Components/Button';
+import BarFollow from '../../components/Bar/BarFollow'
+import CardEvent from '../../components/Cards/CardEvent'
+import ButtonAction from '../../components/Button';
 import { useDispatch } from 'react-redux';
 import { othersActions } from '../../redux/actions/others.actions';
 

@@ -1,8 +1,8 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React, { useRef } from 'react'
 import { colors } from "../../Constants/styles"
-import StoryCard from '../../Components/Stories'
-import Post from '../../Components/Post'
+import StoryCard from '../../components/Stories'
+import Post from '../../components/Post'
 import { Modalize } from 'react-native-modalize';
 // import { StoryContainer, PostArea, Divisor } from './styles'
 // import { data } from '../../datas/fakeStories'

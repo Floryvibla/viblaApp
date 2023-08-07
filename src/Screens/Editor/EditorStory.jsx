@@ -4,13 +4,13 @@ import { useNavigation, useRoute } from '@react-navigation/native'
 import { Video, AVPlaybackStatus } from 'expo-av';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
-import CameraVB from '../../Components/Camera'
-import { Area, Button, Text } from '../../Components/styles'
-import HeaderBack from '../../Components/Header/HeaderBack'
+import CameraVB from '../../components/Camera'
+import { Area, Button, Text } from '../../components/styles'
+import HeaderBack from '../../components/Header/HeaderBack'
 import { colors } from '../../Constants/styles';
-import VideoPost from '../../Components/Post/VideoPost';
+import VideoPost from '../../components/Post/VideoPost';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
-import ButtonAction from '../../Components/Button';
+import ButtonAction from '../../components/Button';
 
 const EditorStory = () => {
 

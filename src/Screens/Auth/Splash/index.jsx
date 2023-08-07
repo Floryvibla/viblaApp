@@ -1,8 +1,8 @@
 import { View, Image, ImageBackground } from 'react-native'
 import React from 'react'
 import { colors } from '../../../Constants/styles'
-import Loading from '../../../Components/Loading'
-import { Text } from '../../../Components/styles'
+import Loading from '../../../components/Loading'
+import { Text } from '../../../components/styles'
 
 export const Splash = ({ loading }) => {
   return (

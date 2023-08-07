@@ -1,10 +1,10 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import { colors } from "../../Constants/styles"
-import StoryCard from '../../Components/Stories'
-import Post from '../../Components/Post'
+// import StoryCard from '../../components/Stories'
+// import Post from '../../components/Post'
 import { Container, TextField } from './styles'
-import SearchHeader from '../../Components/Search'
+// import SearchHeader from '../../components/Search'
 // import { data } from '../../datas/fakeStories'
 
 const Search = ({ navigation }) => {
@@ -19,7 +19,7 @@ const Search = ({ navigation }) => {
 
   return (
     <Container>
-      <SearchHeader navigation={navigation} />
+      {/* <SearchHeader navigation={navigation} /> */}
       <TextField> Search </TextField>
     </Container>
   )

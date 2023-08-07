@@ -11,7 +11,7 @@ import ChatScreen from '../Screens/Chat';
 import PostScreen from '../Screens/Post';
 import ProfileScreen from '../Screens/Profile';
 import VideoScreen from '../Screens/Video';
-import { SafeArea } from '../Components/styles';
+import { SafeArea } from '../components/styles';
 import Notification from '../Screens/Notification';
 import AddPost from '../Screens/Post';
 

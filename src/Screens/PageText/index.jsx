@@ -1,15 +1,15 @@
 import { View, Text } from 'react-native'
 import React, { useEffect } from 'react'
 import { colors } from "../../Constants/styles"
-import StoryCard from '../../Components/Stories'
-import Post from '../../Components/Post'
+import StoryCard from '../../components/Stories'
+import Post from '../../components/Post'
 import { StoryContainer, PostArea, Divisor } from './styles'
 import { data } from '../../datas/fakeStories'
-import HeaderHome from '../../Components/Header'
-import ModalComments from '../../Components/Modals/Comments'
+import HeaderHome from '../../components/Header'
+import ModalComments from '../../components/Modals/Comments'
 import { useDispatch, useSelector } from 'react-redux'
 import { postsActions } from '../../redux/actions/posts.actions'
-import HeaderSelfPost from '../../Components/Header/HeaderSelfPost'
+import HeaderSelfPost from '../../components/Header/HeaderSelfPost'
 
 const PageText = ({ navigation }) => {
 

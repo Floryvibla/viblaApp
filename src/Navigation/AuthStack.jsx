@@ -1,13 +1,13 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { Login, Welcome } from '../Screens/Auth'
-import { SafeArea } from '../Components/styles'
+import { SafeArea } from '../components/styles'
 import { ForgotPassword } from '../Screens/Auth/ForgotPassword'
 import { CodeForgotPassword } from '../Screens/Auth/CodeForgotPassword'
 import { ResetPassword } from '../Screens/Auth/ResetPassword'
 import { CodeInvitation } from '../Screens/Auth/CodeInvitation'
 import { Signup } from '../Screens/Auth/Signup'
-import ModalInterno from '../Components/Modals/Interno'
+import ModalInterno from '../components/Modals/Interno'
 
 const AuthStack = () => {
     const Stack= createNativeStackNavigator()

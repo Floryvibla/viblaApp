@@ -2,16 +2,16 @@ import React, { useState } from 'react'
 import * as MediaLibrary from 'expo-media-library';
 import * as ImagePicker from 'expo-image-picker';
 import { colors } from "../../Constants/styles"
-import StoryCard from '../../Components/Stories'
-import { Area, AreaFormKeyBoard, ClickPressable, ScrollArea, Text, Touch, Wrapper } from '../../Components/styles'
-import HeaderBack from '../../Components/Header/HeaderBack'
-import CardProfile from '../../Components/CardProfile'
+import StoryCard from '../../components/Stories'
+import { Area, AreaFormKeyBoard, ClickPressable, ScrollArea, Text, Touch, Wrapper } from '../../components/styles'
+import HeaderBack from '../../components/Header/HeaderBack'
+import CardProfile from '../../components/CardProfile'
 import { data } from '../../datas/fakeStories'
-import FeedPost from '../../Components/Post/FeedPost'
+import FeedPost from '../../components/Post/FeedPost'
 import { Pressable } from 'react-native'
-import CirclePerfil from '../../Components/Others/CirclePerfil'
-import PermissionsModal from '../../Components/Modals/Interno/Permissions';
-import InputText from '../../Components/InputText';
+import CirclePerfil from '../../components/Others/CirclePerfil'
+import PermissionsModal from '../../components/Modals/Interno/Permissions';
+import InputText from '../../components/InputText';
 import { useNavigation } from '@react-navigation/native';
 
 const EditProfile = () => {

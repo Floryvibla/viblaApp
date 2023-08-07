@@ -1,18 +1,18 @@
 import { Dimensions } from "react-native"
 import styled from "styled-components/native"
 import { colors } from "../../Constants/styles"
+import { HEIGHT_HEADER_FEED } from "../../utils"
 
 const { width, height } = Dimensions.get('window')
 
 export const Container = styled.Pressable`
     flex-direction: row;
-    /* flex: 1; */
     align-items: center;
     justify-content: space-between;
-    /* background-color: red; */
+    background-color: 'transparent';
     width: ${width}px;
-    height: 50px;
-    padding: 10px;
+    height: ${HEIGHT_HEADER_FEED}px;
+    padding-top: 20px;
     border-bottom-width: 1px;
     border-color: #cecece15;
 `
@@ -54,7 +54,7 @@ export const Center = styled.View`
 `
 export const LogoImage = styled.Image`
     width: 90px;
-    height: 30px;
+    height: 50px;
 `
 export const Right = styled.View`
     flex-direction: row;

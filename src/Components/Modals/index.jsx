@@ -10,7 +10,7 @@ import ListMySerie from './ListMySerie';
 import { OptionsHeaderPost } from './OptionsHeadePost';
 import { colors } from '../../Constants/styles';
 
-export const Modal = ({ h, isOptionHeaderPost }) => {
+export const Modal = ({ isOptionHeaderPost }) => {
   const { height: HEIGHT } = Dimensions.get('window')
   const modalizeRef = useRef(null);
   const { openModal, contentDisplayModal } = useSelector(state => state.others)

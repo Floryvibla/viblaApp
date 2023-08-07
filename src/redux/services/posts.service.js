@@ -14,7 +14,7 @@ async function loadPosts() {
     const getTokenUser = await getToken()
     const token =  getTokenUser.token
     // console.log("Token: ", token);
-    return httpInterno.get(`/posts?populate=*`, {headers: {"Authorization" : `Bearer ${token}`}})
+    return httpInterno.get(`/posts?populate[owner][populate][0]=avatar&populate=medias`, {headers: {"Authorization" : `Bearer ${token}`}})
 }
 
 async function getTypesPost() {

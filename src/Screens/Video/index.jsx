@@ -5,7 +5,7 @@ import {  PostAreaVideoPage, Divisor } from './styles'
 import { data } from '../../datas/fakeStories'
 import { useDispatch, useSelector } from 'react-redux'
 import { othersActions } from '../../redux/actions/others.actions'
-import VideoPost from '../../Components/Post/VideoPost'
+import VideoPost from '../../components/Post/VideoPost'
 import { useNavigation } from '@react-navigation/native';
 
 const VideoScreen = () => {

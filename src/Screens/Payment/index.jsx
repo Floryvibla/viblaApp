@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { colors } from "../../Constants/styles"
-import { Area, Text, Touch, Wrapper } from '../../Components/styles'
-import HeaderBack from '../../Components/Header/HeaderBack'
+import { Area, Text, Touch, Wrapper } from '../../components/styles'
+import HeaderBack from '../../components/Header/HeaderBack'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { chave_pix } from "../../mocks/others.json"
-import CopyToClipboard from '../../Components/CopyToClipboard'
+import CopyToClipboard from '../../components/CopyToClipboard'
 
 const Payment = () => {
 

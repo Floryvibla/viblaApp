@@ -13,7 +13,7 @@ const Avatar = ({
   return (
     <Container>
       <ImageAvatar 
-        source={source ? {uri: urlFile+source} : require('../../Assets/images/profile_default.png')}
+        source={source ? {uri: source} : require('../../Assets/images/profile_default.png')}
       />
     </Container>
   )

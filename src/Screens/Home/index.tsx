@@ -1,18 +1,24 @@
-import { View, Text, FlatList } from 'react-native'
-import React, { useRef } from 'react'
-import HeaderHome from '../../Components/Header'
-import { Container } from './styles'
+import { View, Text, FlatList, Platform } from 'react-native'
+import React, { useEffect, useRef } from 'react'
+import HeaderHome from '../../components/Header'
+import { Container, Divisor } from './styles'
 import { useNavigation } from '@react-navigation/native'
-import Post from '../../Components/Post'
+import Post from '../../components/Post'
 import { othersActions, postsActions } from '../../redux/actions'
-import { PostDto } from '../../dtos/postsDtos'
+import { PostDataDto, PostDto } from '../../dtos/postsDtos'
 import { formatDate } from '../../utils/dates'
 import { useDispatch, useSelector } from 'react-redux'
+import * as NavigationBar from 'expo-navigation-bar';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import { HEIGHT_HEADER_FEED } from '../../utils'
 
 const Home = () => {
 
   const navigation = useNavigation<any>()
   const dispatch = useDispatch<any>()
+
+  const bottomTabBarHeight = useBottomTabBarHeight()
+  
 
   const { contentDisplayModal } = useSelector((state: any) => state.others)
 
@@ -34,9 +40,9 @@ const Home = () => {
     })
   }
 
-  // console.log("contentDisplayModal: ", contentDisplayModal === 'optionHeaderPost');
+  // console.log("dataPost: ", dataPost);
 
-  const renderPost = ({item}: {item: any}) => (
+  const renderPost = ({item}: {item: PostDto}) => (
     <Post 
       username={item?.attributes.owner.data?.attributes.username}
       createdAt={formatDate(item?.attributes.createdAt)}
@@ -44,18 +50,28 @@ const Home = () => {
       isActiveOptionsPost={contentDisplayModal === 'optionHeaderPost'}
       info={item?.attributes.info}
       onPressPost={() => handleToSelfPost(item)}
+      medias={item?.attributes.medias}
     />
   )
   
+  useEffect(() => {
+    // Platform.OS === 'android' && NavigationBar.setBackgroundColorAsync('transparent');
+  }, [])
   
   
   return (
     <Container>
-      <HeaderHome navigation={navigation} />
       <FlatList 
         data={dataPost}
         keyExtractor={(item: any) => item.id}
         renderItem={renderPost}
+        showsVerticalScrollIndicator={false}
+        // bounces={false}
+        ItemSeparatorComponent={() => <Divisor />}
+        contentContainerStyle={{
+          paddingTop: HEIGHT_HEADER_FEED,
+          paddingBottom: bottomTabBarHeight
+        }}
       />
     </Container>
   )

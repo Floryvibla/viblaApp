@@ -15,7 +15,7 @@ export const postsActions = {
 }
 
 function createPost(dataUser: any) {
-    return dispatch => {
+    return (dispatch : any) => {
         dispatch({
             type: postsConstants.CREATE_POST_REQUEST
         })
@@ -76,7 +76,7 @@ function cleanCreatePost() {
 
 function LoadPosts() {
     // console.log("Queee");
-    const { data, error, mutate } = useSWR(`/posts?populate=*`, async () => {
+    const { data, error, mutate } = useSWR(`/posts?populate[owner][populate][0]=avatar&populate=medias`, async () => {
         const response = await postsService.loadPosts()
         const data = await response.data
     

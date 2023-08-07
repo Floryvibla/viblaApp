@@ -1,15 +1,15 @@
 import React, { useRef, useState } from 'react'
 import { colors } from "../../Constants/styles"
-import StoryCard from '../../Components/Stories'
-import { Area, ListArea, ScrollArea, Text, Touch, Wrapper } from '../../Components/styles'
-import HeaderBack from '../../Components/Header/HeaderBack'
-import CardProfile from '../../Components/CardProfile'
+import StoryCard from '../../components/Stories'
+import { Area, ListArea, ScrollArea, Text, Touch, Wrapper } from '../../components/styles'
+import HeaderBack from '../../components/Header/HeaderBack'
+import CardProfile from '../../components/CardProfile'
 import { data } from '../../datas/fakeStories'
-import FeedPost from '../../Components/Post/FeedPost'
+import FeedPost from '../../components/Post/FeedPost'
 import { Image, Pressable, TextInput, View, Keyboard, Platform } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { LIMIT_LEGENDA } from '../../Constants/app'
-import BarFollow from '../../Components/Bar/BarFollow'
+import BarFollow from '../../components/Bar/BarFollow'
 import { users, hashtags } from '../../mocks/db.json'
 
 const PostingPhoto = () => {

@@ -21,7 +21,8 @@ export default function App() {
 
   useEffect(() => {
     Audio.setAudioModeAsync({ playsInSilentModeIOS: true });
-    Platform.OS === 'android' && NavigationBar.setBackgroundColorAsync(colors.dark);
+    Platform.OS === 'android' && NavigationBar.setPositionAsync('absolute');
+    Platform.OS === 'android' && NavigationBar.setBackgroundColorAsync('transparent');
   }, []);
 
   // console.log("Teste2");
@@ -32,11 +33,11 @@ export default function App() {
       <Provider store={store}>
         <SWRConfig
           value={{
-            // revalidateOnFocus: true,
-            // revalidateOnReconnect: true,
-            // revalidateIfStale: true,
-            // focusThrottleInterval: 5000
-            revalidateOnMount: false
+            revalidateOnFocus: true,
+            revalidateOnReconnect: true,
+            revalidateIfStale: true,
+            focusThrottleInterval: 5000
+            // revalidateOnMount: false
           }}
         >
           <GestureHandlerRootView style={{ flex: 1 }}>

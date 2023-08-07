@@ -5,7 +5,7 @@ import CirclePerfil from '../Others/CirclePerfil'
 import { colors } from "../../Constants/styles"
 import { MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
 import { EvilIcons, Foundation } from '@expo/vector-icons';
-import Curtido from './Curtido'
+import { Entypo } from '@expo/vector-icons';
 import { Dimensions, TouchableHighlight } from 'react-native';
 import { Modalize } from 'react-native-modalize';
 import { Text } from '../styles';
@@ -25,6 +25,7 @@ interface SocialPostProps {
   nameIconHear?: any 
   countLike?: any 
   countComment?: any
+  onPressDot?: () => void 
 }
 
 interface IconProps {
@@ -34,22 +35,29 @@ interface IconProps {
 const SocialPost = ({
   stateLike,
   countLike,
-  countComment
+  countComment,
+  onPressDot
 }: SocialPostProps) => {
   return (
     <Area>
       <Wrapper>
         <AreaIcon>
-          <Icon isActive={stateLike} name={"heart-outline"} />
-          <TextUI>{countLike}</TextUI>
-        </AreaIcon>
-        <AreaIcon>
-          <Icon name={"comment-outline"} />
           <TextUI>{countComment}</TextUI>
+          <IconMaterial name={"comment-processing"} />
         </AreaIcon>
         <AreaIcon>
-          <IconAntDesign isActive={stateLike} name={"retweet"} />
           <TextUI>{countLike}</TextUI>
+          <IconMaterial isActive={stateLike} name={"heart"} />
+        </AreaIcon>
+        <AreaIcon>
+          <TextUI>{countLike}</TextUI>
+          <IconAntDesign isActive={stateLike} name={"retweet"} />
+        </AreaIcon>
+      </Wrapper>
+
+      <Wrapper>
+        <AreaIcon onPress={onPressDot}>
+          <Entypo name="dots-three-horizontal" size={22} color={colors.white} />
         </AreaIcon>
       </Wrapper>
     </Area>
@@ -66,18 +74,19 @@ export const CommentArea = styled.Pressable`
   align-items: center;
   margin: 10px 0px;
 `
-export const Icon = styled(MaterialCommunityIcons)<IconProps>`
+export const IconMaterial = styled(MaterialCommunityIcons)<IconProps>`
   color: ${({ isActive }) => isActive ? colors.dourado : colors.white_100};
-  font-size: ${sizeIcon}px;
+  font-size: ${22}px;
 `
 export const IconAntDesign = styled(AntDesign)<IconProps>`
   color: ${({ isActive }) => isActive ? colors.dourado : colors.white_100};
-  font-size: ${sizeIcon}px;
+  font-size: ${22}px;
 `
 export const AreaIcon = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   margin: 10px 0px;
+  gap: 5px;
 `
 export const ShareArea = styled.Pressable`
   flex-direction: row;

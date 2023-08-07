@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import Logo from "../../../Assets/vibla/icon_white.png"
 import { Area, LogoImage } from '../Welcome/styles'
 import dataLanguage from "../../../mocks/language/ptBR.json"
-import { Button, ButtonLinearGradient, Text, TextInput, Wrapper, Touch, AreaFormKeyBoard, DatePickerInput } from '../../../Components/styles.js'
+import { Button, ButtonLinearGradient, Text, TextInput, Wrapper, Touch, AreaFormKeyBoard, DatePickerInput } from '../../../components/styles.js'
 import { colors } from '../../../Constants/styles'
 import { Platform } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
@@ -11,7 +11,7 @@ import { formatDate } from '../../../functions/maskInput'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { othersActions } from '../../../redux/actions/others.actions'
-import HeaderBack from '../../../Components/Header/HeaderBack'
+import HeaderBack from '../../../components/Header/HeaderBack'
 
 export const Signup = () => {
 

@@ -1,31 +1,19 @@
 import React, { ReactNode } from 'react'
-import { TextStyled, VariantTextProps, TypeTextProps, WeightTextProps } from './styles'
+import { TextStyled, VariantTextProps, TypeTextProps, WeightTextProps, TextStyledProps } from './styles'
 import { urlFile } from '../../config/http'
 import { colors } from '../../Constants/styles'
 
-interface PropsText {
+type PropsText = TextStyledProps & {
   children: ReactNode
-  variant?: VariantTextProps
-  type?: TypeTextProps
-  color?: keyof typeof colors
-  weight?: WeightTextProps
 }
 
 const TextUI = ({
   children,
-  variant,
-  type,
-  color,
-  weight
+  ...rest
 }: PropsText) => {
   
   return (
-    <TextStyled 
-      color={color} 
-      type={type} 
-      variant={variant}
-      weight={weight}
-    >
+    <TextStyled {...rest}>
       {children}
     </TextStyled>
   )

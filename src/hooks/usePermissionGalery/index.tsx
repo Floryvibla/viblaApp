@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { View, Text } from 'react-native'
 import * as MediaLibrary from 'expo-media-library';
 import * as ImagePicker from 'expo-image-picker';
-import PermissionsModal from '../../Components/Modals/Interno/Permissions';
+import PermissionsModal from '../../components/Modals/Interno/Permissions';
 
 export type MediaGaleryProps = {
   uri?: string;

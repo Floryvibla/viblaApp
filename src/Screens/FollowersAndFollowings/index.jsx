@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { colors } from "../../Constants/styles"
-import StoryCard from '../../Components/Stories'
-import { Area, ListArea, ScrollArea, Text, Touch, Wrapper } from '../../Components/styles'
-import HeaderBack from '../../Components/Header/HeaderBack'
-import CardProfile from '../../Components/CardProfile'
-import FeedPost from '../../Components/Post/FeedPost'
+import StoryCard from '../../components/Stories'
+import { Area, ListArea, ScrollArea, Text, Touch, Wrapper } from '../../components/styles'
+import HeaderBack from '../../components/Header/HeaderBack'
+import CardProfile from '../../components/CardProfile'
+import FeedPost from '../../components/Post/FeedPost'
 import { Pressable } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import BarFollow from '../../Components/Bar/BarFollow'
+import BarFollow from '../../components/Bar/BarFollow'
 
 const FollowersAndFollowings = () => {
 

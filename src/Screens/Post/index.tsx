@@ -2,12 +2,12 @@ import { Keyboard, Platform, Pressable, TextInput, View, ScrollView, Dimensions 
 import React, { useEffect, useRef, useState } from 'react';
 import { colors } from "../../Constants/styles";
 import { AreaPreviewMedia, Container, Footer, Header, Wrapper } from './styles';
-import TextUI from '../../Components/Text';
+import TextUI from '../../components/Text';
 import { LIMIT_TEXT } from '../../Constants/app';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { MediaGaleryProps, usePermissionGalery } from '../../hooks/usePermissionGalery';
-import { PreviewMedia } from '../../Components/PreviewMedia';
+import { PreviewMedia } from '../../components/PreviewMedia';
 import { postsActions } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
