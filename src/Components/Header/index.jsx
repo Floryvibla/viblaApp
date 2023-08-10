@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Dropdown from '../Dropdown';
 import { othersActions } from '../../redux/actions/others.actions';
 import { BlurView } from 'expo-blur';
+import { useNavigate } from '../../hooks/useNavigate';
 
 const Header = () => {
   const msg= true
@@ -19,6 +20,12 @@ const Header = () => {
 
   const handleOpenDropdown= () => {
     dispatch(othersActions.openDropdown(!openDropdown))
+  }
+
+  const { navigation } = useNavigate()
+
+  const handeToQrcode = () => {
+    navigation.navigate('inviteFriends')
   }
 
   return (
@@ -55,7 +62,7 @@ const Header = () => {
             <Ionicons name="notifications" size={26} color={colors.white_100} />
             {msg && <NewMsg />}
           </IconNotif> */}
-          <IconNotif margin>
+          <IconNotif onPress={handeToQrcode} margin>
             <Ionicons name="chatbox-ellipses-outline" size={26} color={colors.white_100} />
             {msg && <NewMsg />}
           </IconNotif>
