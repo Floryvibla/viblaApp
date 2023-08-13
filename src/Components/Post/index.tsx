@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Image, Text, StyleSheet, View, ScrollView, Dimensions, Platform } from 'react-native';
+import { Image, Text, StyleSheet, View, ScrollView, Dimensions, Platform, NativeScrollEvent } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { PostDataDto } from '../../dtos/postsDtos';
 import { AreaText, BlurViewContainer, Container, ContainerMedia, ImageForBlurStyled, ImageStyled, WrapperImage, WrapperMedia } from './styles';
@@ -35,6 +35,9 @@ export default function Post({
   const ScrollView2Ref = useRef<ScrollView>(null)
   const translateX = useSharedValue(0);
 
+  const [currentMedia, setCurrentMedia] = useState<number | null>(0);
+
+
   const animatedStyle = useAnimatedStyle(() => {
     return {
       transform: [{ translateX: translateX.value }],
@@ -42,10 +45,6 @@ export default function Post({
   });
 
   const handleAnimate = (offsetX: number) => {
-    // Animação usando withSpring para animar com efeito de mola
-    // translateX.value = withSpring(100, { damping: 10 });
-
-    // Ou use withTiming para uma animação linear
     translateX.value = -offsetX
   };
 
@@ -63,7 +62,7 @@ export default function Post({
 
   // console.log("scrollX: ", scrollX);
 
-  const handleScroll1 = (event) => {
+  const handleScrollX = (event) => {
     const offset = event.nativeEvent.contentOffset.x;
     if (ScrollView1Ref.current) {
       // console.log("offset2: ", offset);
@@ -92,23 +91,21 @@ export default function Post({
   
   const heightMediaBlur = HEIGHTWINDOW
 
+  const handleScroll = (event: any) => {
+    const xOffset = event.nativeEvent.contentOffset.x;
+    const itemWidth = WIDTHWINDOW / 1.5; // Width of each item in the ScrollView
+    const currentItemIndex = Math.floor(xOffset / itemWidth);
+
+    setCurrentMedia(currentItemIndex)
+
+    handleScrollX(event)
+    
+  }
+  
+
   return (
     <Container style={{backgroundColor: '#000'}}>
       {medias?.data?.length > 0 && (
-        // <ScrollView 
-        //   ref={ScrollView2Ref} 
-        //   horizontal 
-        //   style={[StyleSheet.absoluteFill]}
-        //   onScroll={handleScroll2}
-        // >
-        //   <Animated.View style={[{
-        //     width: '100%',
-        //     height: HEIGHTWINDOW,
-        //     position: 'relative'
-        //   }, animatedStyle]}>
-              
-        //   </Animated.View>
-        // </ScrollView>
         <View
           style={[{
             width: '100%',
@@ -169,10 +166,10 @@ export default function Post({
                 gap: 10,
                 marginTop: 10
               }}
-              onScroll={handleScroll1}
+              onScroll={handleScroll}
               scrollEventThrottle={16}
             >
-              {medias?.data.map(item => (
+              {medias?.data.map((item, index) => (
                 <WrapperMedia style={{height: heightMedia, elevation: 20}} key={item.id}>
                   {item.attributes.mime.split('/')[0] === 'image' && (
                     <WrapperImage height={item.attributes.height}>
@@ -187,6 +184,7 @@ export default function Post({
                       uri= {item.attributes.url}
                       isMuted={true}
                       height={heightMedia}
+                      shouldPlay={currentMedia === index}
                     />
                   )}
                 </WrapperMedia>
