@@ -51,6 +51,7 @@ export type MediaPostDto = {
 }
 
 export type PostDataDto = HeaderPostDto & {
+    id?: number
     info?: string
     createdAt?: string
     medias?: {

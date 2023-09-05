@@ -4,10 +4,9 @@ import { colors } from "../../Constants/styles"
 
 const w= Dimensions.get("window").width
 
-export const Container = styled.ScrollView`
+export const ContainerScroll = styled.ScrollView`
     background-color: ${colors.dark};
     flex: 1;
-    width: ${w}px;
 `
 // export const PostArea = styled.FlatList`
 //     flex: 4;

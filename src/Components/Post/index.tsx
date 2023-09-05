@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Image, Text, StyleSheet, View, ScrollView, Dimensions, Platform, NativeScrollEvent } from 'react-native';
 import { BlurView } from 'expo-blur';
-import { PostDataDto } from '../../dtos/postsDtos';
-import { AreaText, BlurViewContainer, Container, ContainerMedia, ImageForBlurStyled, ImageStyled, WrapperImage, WrapperMedia } from './styles';
+import { PostDataDto, PostDto } from '../../dtos/postsDtos';
+import { AreaText, BlurViewContainer, Container, ContainerBlurView, ContainerMedia, Content, ImageForBlurStyled, ImageStyled, WrapperImage, WrapperMedia } from './styles';
 import TextUI from '../Text';
 import { Wrapper } from '../styles';
 import Header from './Header';
@@ -14,20 +14,28 @@ import VideoPlayerUI from '../VideoPlayer';
 
 const { height:HEIGHTWINDOW, width:WIDTHWINDOW } = Dimensions.get('window')
 
+type PostDataDtoView = PostDataDto & {
+  isCurrentPost?: boolean
+  isSelfPost?: boolean
+} 
+
 
 export default function Post({ 
   username,
   url_avatar,
   is_founder,
   is_verified,
+  id,
   name,
+  isSelfPost,
   createdAt,
   isActiveOptionsPost,
   info,
   medias,
+  isCurrentPost,
   onPressDot,
   onPressPost
-}: PostDataDto) {
+}: PostDataDtoView) {
 
   const isImage = medias?.data?.length > 0 && medias?.data[2].attributes.mime.split('/')[0] === 'image'
 
@@ -101,15 +109,31 @@ export default function Post({
     handleScrollX(event)
     
   }
+
+  const handleFontSize = () => {
+    if (medias?.data?.length > 0) return 20
+
+    if (info.length <= 100) {
+      return 45
+    } else if(info.length > 100 && info.length <= 300) {
+      return 35
+    } else {
+      return 20
+    }
+  }
+
+  const fontSizeScale = handleFontSize()
   
 
   return (
-    <Container style={{backgroundColor: '#000'}}>
+    <Container isSelfPost={isSelfPost} style={{backgroundColor: isSelfPost ? 'transparent' : '#000'}}>
       {medias?.data?.length > 0 && (
         <View
           style={[{
             width: '100%',
-            height: '100%'
+            height: '100%',
+            overflow:'hidden',
+            borderRadius: 20
           }, StyleSheet.absoluteFill]}
         >
           <Animated.View style={[{
@@ -120,6 +144,7 @@ export default function Post({
                 <View key={item.id} style={[{
                   width: '100%',
                   height: '100%',
+                  borderRadius: 20
                 }]}>
                   {item.attributes.mime.split('/')[0] === 'image' && (
                     <ImageForBlurStyled 
@@ -133,7 +158,7 @@ export default function Post({
                     <Video 
                       source={{ uri: item.attributes.url}}
                       resizeMode={ResizeMode.COVER}
-                      style={{width: '100%', height: '100%'}}
+                      style={{width: '100%', height: '100%', borderRadius: 20}}
                     />
                     
                   )}
@@ -142,66 +167,79 @@ export default function Post({
           </Animated.View>
         </View>
       )}
-      <BlurViewContainer 
-        style={{backgroundColor: Platform.OS === 'ios' ? 'transparent' : '#000000be',}} 
-        tint='dark' 
-        intensity={100}
-      >
-        <Wrapper>
-          <Header
-            username={username}
-            createdAt={createdAt} 
-            isActiveOptionsPost={isActiveOptionsPost}
-          />
-          <AreaText onPress={onPressPost}>
-            <TextUI variant='subtitle' style={{fontWeight: '400'}}>{info}</TextUI>
-          </AreaText>
-          {medias?.data?.length > 0 && (
-            <ContainerMedia
-              ref={ScrollView1Ref} 
-              horizontal 
-              showsHorizontalScrollIndicator={false}
-              contentContainerStyle={{
-                paddingHorizontal: 20,
-                gap: 10,
-                marginTop: 10
-              }}
-              onScroll={handleScroll}
-              scrollEventThrottle={16}
-            >
-              {medias?.data.map((item, index) => (
-                <WrapperMedia style={{height: heightMedia, elevation: 20}} key={item.id}>
-                  {item.attributes.mime.split('/')[0] === 'image' && (
-                    <WrapperImage height={item.attributes.height}>
-                      <ImageStyled 
-                        source={{uri: item.attributes.url}}
-                        resizeMode='cover'
+      <ContainerBlurView isSelfPost={isSelfPost}>
+        <BlurViewContainer 
+          style={{backgroundColor: Platform.OS === 'ios' ? 'transparent' : '#000000be'}} 
+          tint='dark' 
+          intensity={100}
+        >
+          <Content isSelfPost={isSelfPost}>
+            <Header
+              username={username}
+              createdAt={createdAt} 
+              isActiveOptionsPost={isActiveOptionsPost}
+            />
+            <AreaText isSelfPost={isSelfPost} onPress={onPressPost}>
+              <ScrollView>
+                <TextUI 
+                  variant='subtitle' 
+                  style={{
+                    fontWeight: '400', 
+                    fontSize: isSelfPost ? fontSizeScale : 16,
+                  }}
+                >
+                  {info}
+                </TextUI>
+              </ScrollView>
+            </AreaText>
+            {medias?.data?.length > 0 && (
+              <ContainerMedia
+                ref={ScrollView1Ref} 
+                horizontal 
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{
+                  paddingHorizontal: 20,
+                  gap: 10,
+                  marginTop: 10
+                }}
+                onScroll={handleScroll}
+                scrollEventThrottle={16}
+              >
+                {medias?.data.map((item, index) => (
+                  <WrapperMedia style={{height: heightMedia, elevation: 20}} key={item.id}>
+                    {item.attributes.mime.split('/')[0] === 'image' && (
+                      <WrapperImage height={item.attributes.height}>
+                        <ImageStyled 
+                          source={{uri: item.attributes.url}}
+                          resizeMode='cover'
+                        />
+                      </WrapperImage>
+                    )}
+                    {item.attributes.mime.split('/')[0] === 'video' && (
+                      <VideoPlayerUI
+                        uri= {item.attributes.url}
+                        isMuted={true}
+                        height={heightMedia}
+                        shouldPlay={isCurrentPost && currentMedia === index}
+                        isLooping
                       />
-                    </WrapperImage>
-                  )}
-                  {item.attributes.mime.split('/')[0] === 'video' && (
-                    <VideoPlayerUI
-                      uri= {item.attributes.url}
-                      isMuted={true}
-                      height={heightMedia}
-                      shouldPlay={currentMedia === index}
-                    />
-                  )}
-                </WrapperMedia>
-              ))}
-            </ContainerMedia>
-          )}
-          <SocialPost 
-            onPressDot={onPressDot}
-            // share={isSharedPost} 
-            // onPressComment={onPressComment}
-            // onPressLike={onPressLike}
-            // state={isLikedPost} 
-            // countComment={countComment}
-            // countLike={countLike}
-          />
-        </Wrapper>
-      </BlurViewContainer>
+                    )}
+                  </WrapperMedia>
+                ))}
+              </ContainerMedia>
+            )}
+            <SocialPost 
+              onPressDot={onPressDot}
+              // share={isSharedPost} 
+              // onPressComment={onPressComment}
+              // onPressLike={onPressLike}
+              // state={isLikedPost} 
+              // countComment={countComment}
+              // countLike={countLike}
+            />
+          </Content>
+        </BlurViewContainer>
+      </ContainerBlurView>
     </Container>
   );
 }

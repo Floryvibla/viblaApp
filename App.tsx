@@ -10,6 +10,7 @@ import { store } from './src/redux/store'
 import { SWRConfig } from 'swr';
 import { colors } from './src/Constants/styles';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import AppContext from './src/context';
 
 const prefix = Linking.createURL('/')
 
@@ -31,19 +32,21 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Provider store={store}>
-        <SWRConfig
-          value={{
-            revalidateOnFocus: true,
-            revalidateOnReconnect: true,
-            revalidateIfStale: true,
-            focusThrottleInterval: 5000
-            // revalidateOnMount: false
-          }}
-        >
-          <GestureHandlerRootView style={{ flex: 1 }}>
-          <AppNavigator linking={linking}/>
-          </GestureHandlerRootView>
-        </SWRConfig>
+        <AppContext>
+          <SWRConfig
+            value={{
+              revalidateOnFocus: true,
+              revalidateOnReconnect: true,
+              revalidateIfStale: true,
+              focusThrottleInterval: 5000
+              // revalidateOnMount: false
+            }}
+          >
+            <GestureHandlerRootView style={{ flex: 1 }}>
+            <AppNavigator linking={linking}/>
+            </GestureHandlerRootView>
+          </SWRConfig>
+        </AppContext>
       </Provider>
     </View>
   );

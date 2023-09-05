@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NativeStackNavigationProp, createNativeStackNavigator } from '@react-navigation/native-stack'
 import SearchScreen from '../Screens/Search';
 import SelfPost from '../Screens/SelfPost'
@@ -23,6 +23,8 @@ import { Dimensions, Platform } from 'react-native';
 import { colors } from '../Constants/styles';
 import ModalInterno from '../components/Modals/Interno';
 import Header from '../components/Header';
+import { useModal } from '../hooks/useModal';
+import { AppContext } from '../context/AppContext';
 
 
 export type StackAppRoutes = {
@@ -46,18 +48,15 @@ const { Navigator, Screen }= createNativeStackNavigator<StackAppRoutes>()
 
 function StackNavigation() {
   const Stack= createNativeStackNavigator()
-  const { contentDisplayModal } = useSelector((state: any) => state.others)
-
-  const isOptionHeaderPost = contentDisplayModal === "optionHeaderPost"
+  const { modal: {displayName, isOpenModal} } = useModal()
+  const { state:{showHeader}, UpdateState } = useContext(AppContext)
 
   // console.log("isOptionHeaderPost: ", isOptionHeaderPost);
 
   return (
     <>
-      <Modal 
-        isOptionHeaderPost={isOptionHeaderPost}
-      />
       <ModalInterno />
+      {isOpenModal && <Modal/>}
       <Navigator
         screenOptions={{
           headerShown: false,
@@ -69,7 +68,7 @@ function StackNavigation() {
         <Screen
           name='Home'
           options={{
-            headerShown: true,
+            headerShown: showHeader,
             headerTransparent: true,
             headerBlurEffect: 'dark',
             header: (props) => (

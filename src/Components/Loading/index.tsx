@@ -48,7 +48,7 @@ const Container = styled.View`
   left: 0px;
   justify-content: center;
   align-items: center;
-  /* background-color: ${colors.transparenteGray}; */
+  background-color: ${colors.dark};
   flex: 1;
   width: 100%;
   height: 100%;

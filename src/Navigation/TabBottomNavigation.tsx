@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Platform } from 'react-native'
 import { createBottomTabNavigator, BottomTabNavigationProp, BottomTabBar } from '@react-navigation/bottom-tabs'
 import { colors } from '../Constants/styles'
@@ -16,6 +16,7 @@ import Notification from '../Screens/Notification';
 import AddPost from '../Screens/Post';
 import { ProfileScreenParams } from './types';
 import { BlurView } from 'expo-blur';
+import { AppContext } from '../context/AppContext';
 
 
 
@@ -35,8 +36,10 @@ const { Navigator, Screen }= createBottomTabNavigator<BottomTabStack>()
 function TabBottomNavigation() {
     // <Ionicons name="md-person-outline" size={24} color="black" />
     // <AntDesign name="plus" size={24} color="black" />
-  const size = 20
+  const size = 22
 //   Platform.OS === "ios" ? 25 : 25
+
+    const { state:{showHeader}, UpdateState } = useContext(AppContext)
 
   return (
     <Navigator 
@@ -67,18 +70,34 @@ function TabBottomNavigation() {
             </BlurView>
         )}
     >
-        <Screen name="Main" component={HomeScreen} options={{
-            tabBarIcon: ({color}) => (
-                <AntDesign name="home" size={size} color={color} />
-            ),
-        }} />
-        <Screen name="Discover" component={DiscoverScreen} options={{
+        <Screen 
+            name="Main" 
+            component={HomeScreen} 
+            options={{
+                tabBarIcon: ({color}) => (
+                    <AntDesign name="home" size={size} color={color} />
+                ),
+            }} 
+            listeners={{
+                tabPress: () => UpdateState({showHeader: true})
+            }}
+        />
+        <Screen 
+            name="Discover" 
+            component={DiscoverScreen} 
+            options={{
                 tabBarIcon: ({color}) => (
                     <Fontisto name="world-o" size={size} color={color} />
                 ),
             }}
+            listeners={{
+                tabPress: () => UpdateState({showHeader: false})
+            }}
         />
-        <Screen name="Add" component={AddPost} options={{
+        <Screen 
+            name="Add" 
+            component={AddPost} 
+            options={{
                 tabBarIcon: ({color}) => (
                     <Ionicons 
                         name="ios-add-circle-outline" 
@@ -90,8 +109,14 @@ function TabBottomNavigation() {
                     display: "none"
                 }
             }}
+            listeners={{
+                tabPress: () => UpdateState({showHeader: false})
+            }}
         />
-        <Screen name="notification" component={Notification} options={{
+        <Screen 
+            name="notification" 
+            component={Notification} 
+            options={{
                 tabBarIcon: ({color}) => (
                     <Ionicons 
                         name="notifications" 
@@ -100,8 +125,14 @@ function TabBottomNavigation() {
                     />
                 )
             }}
+            listeners={{
+                tabPress: () => UpdateState({showHeader: false})
+            }}
         />
-        <Screen name="Profile" component={ProfileScreen} options={{
+        <Screen 
+            name="Profile" 
+            component={ProfileScreen} 
+            options={{
                 tabBarIcon: ({color}) => (
                     <Ionicons  
                         name="md-person-outline" 
@@ -110,7 +141,9 @@ function TabBottomNavigation() {
                     />
                 )
             }}
-            
+            listeners={{
+                tabPress: () => UpdateState({showHeader: false})
+            }}
         />
     </Navigator>
   )

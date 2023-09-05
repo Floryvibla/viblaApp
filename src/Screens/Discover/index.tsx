@@ -1,10 +1,10 @@
-import { View, Text, Dimensions, Pressable } from 'react-native'
+import { View, Text, Dimensions, Pressable, Platform } from 'react-native'
 import React, { useState } from 'react'
 import { colors } from "../../Constants/styles"
 import StoryCard from '../../components/Stories'
 import Post from '../../components/Post'
 import Search from '../../components/Search'
-import { Container } from './styles'
+import { ContainerScroll } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { othersConstants } from '../../redux/constants'
 import { data } from '../../datas/discover'
@@ -12,13 +12,18 @@ import SlideImage from '../../components/Slide'
 import SlideDiscover from '../../components/SlideDiscover'
 import { SafeArea, ScrollArea } from '../../components/styles'
 import { useNavigation } from '@react-navigation/native'
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs'
+import { useNavigate } from '../../hooks/useNavigate'
 
 const Discover = () => {
   const dispatch= useDispatch()
-  const navigation = useNavigation()
-  const { openSearch } = useSelector(state => state.others)
+  // const navigation = useNavigation()
+  const { navigation } = useNavigate()
+  const { openSearch } = useSelector((state: any) => state.others)
   const W= Dimensions.get('window').height
   const [imageActive, setImageActive] = useState(0)
+
+  const heightBottomBar = useBottomTabBarHeight()
 
   const images= ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGDKlrEl8nuM4ScTybjh-NLgcT2O6uLthkVw&usqp=CAU',
   'https://pps.whatsapp.net/v/t61.24694-24/204812481_606052734227264_1729602996482981335_n.jpg?ccb=11-4&oh=01_AVwwt1-w3parhyQTyvZfTi4bBWpPTljBrh8zhTHkstx7qA&oe=633943D2',
@@ -27,13 +32,13 @@ const Discover = () => {
   'https://espacopop.com.br/wp-content/uploads/2022/09/A-Mulher-Rei-820x380.png',
 ]
 
-  const renderStory= ({ item } ) => (
-    <StoryCard item= {item} />
-  )
+  // const renderStory= ({ item } ) => (
+  //   <StoryCard item= {item} />
+  // )
 
-  const renderPost= ({ item } ) => (
-    <Post item= {item} />
-  )
+  // const renderPost= ({ item } ) => (
+  //   <Post item= {item} />
+  // )
 
   const handleOpen= () => {
     dispatch({
@@ -51,10 +56,15 @@ const Discover = () => {
       }
     }
   }
+  
 
   return (
-    <ScrollArea style={{backgroundColor: colors.dark}}>
-      <Search onPressIn={handleOpen} state={openSearch} navigation={navigation} />
+    <ContainerScroll style={{ paddingTop: Platform.OS === 'ios' ? 50 : 20, paddingBottom: heightBottomBar}}>
+      <Search 
+        onPressIn={handleOpen} 
+        // state={openSearch} 
+        navigation={navigation} 
+      />
       <SlideImage 
         onScroll={handleScroll} 
         item={images}
@@ -66,11 +76,13 @@ const Discover = () => {
           count={i.count} 
           key={index} 
           // icon
+          icon={false}
           title={i.type}
           item={i.data}
         />
       ))}
-    </ScrollArea>
+      <View style={{height: heightBottomBar * 1.6}} />
+    </ContainerScroll>
   )
 }
 
