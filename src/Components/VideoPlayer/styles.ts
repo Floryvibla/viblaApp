@@ -18,7 +18,7 @@ export const Container = styled.View<VideoPlayerPropsStyled>`${({ isPreview, hei
     justify-content: center;
 `}`
 
-export const WrapperVideo = styled.View<VideoPlayerPropsStyled>`${({ isPreview, height }) => css`
+export const WrapperVideo = styled.Pressable<VideoPlayerPropsStyled>`${({ isPreview, height }) => css`
     width: 100%;
 `}`
 

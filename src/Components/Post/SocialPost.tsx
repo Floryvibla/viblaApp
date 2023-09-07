@@ -36,12 +36,13 @@ const SocialPost = ({
   stateLike,
   countLike,
   countComment,
-  onPressDot
+  onPressDot,
+  onPressComment
 }: SocialPostProps) => {
   return (
     <Area>
       <Wrapper>
-        <AreaIcon>
+        <AreaIcon onPress={onPressComment}>
           <TextUI>{countComment}</TextUI>
           <IconMaterial name={"comment-processing"} />
         </AreaIcon>

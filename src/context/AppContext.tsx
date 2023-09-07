@@ -16,7 +16,7 @@ export type AppContextProps = {
 
 const DEFAULT_VALUE: AppContextDto = {
     modal: {
-        displayName: false,
+        displayName: [],
         isOpenModal: false
     },
     showHeader: true

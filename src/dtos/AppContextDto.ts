@@ -4,9 +4,9 @@ export type AppContextDto = {
 }
 
 export type ModalDto = {
-    displayName?: ModalDisplayname | boolean;
+    displayName?: ModalDisplayname[];
     data?: any;
     isOpenModal?: boolean;
 }
 
-export type ModalDisplayname = 'selfpost' | ''
+export type ModalDisplayname = 'selfpost' | 'comment'

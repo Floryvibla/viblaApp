@@ -34,7 +34,8 @@ export default function Post({
   medias,
   isCurrentPost,
   onPressDot,
-  onPressPost
+  onPressPost,
+  onComment
 }: PostDataDtoView) {
 
   const isImage = medias?.data?.length > 0 && medias?.data[2].attributes.mime.split('/')[0] === 'image'
@@ -206,7 +207,7 @@ export default function Post({
                 scrollEventThrottle={16}
               >
                 {medias?.data.map((item, index) => (
-                  <WrapperMedia style={{height: heightMedia, elevation: 20}} key={item.id}>
+                  <WrapperMedia onPress={onPressPost} style={{height: heightMedia, elevation: 20}} key={item.id}>
                     {item.attributes.mime.split('/')[0] === 'image' && (
                       <WrapperImage height={item.attributes.height}>
                         <ImageStyled 
@@ -217,6 +218,7 @@ export default function Post({
                     )}
                     {item.attributes.mime.split('/')[0] === 'video' && (
                       <VideoPlayerUI
+                        onPressVideo={onPressPost}
                         uri= {item.attributes.url}
                         isMuted={true}
                         height={heightMedia}
@@ -231,7 +233,7 @@ export default function Post({
             <SocialPost 
               onPressDot={onPressDot}
               // share={isSharedPost} 
-              // onPressComment={onPressComment}
+              onPressComment={onComment}
               // onPressLike={onPressLike}
               // state={isLikedPost} 
               // countComment={countComment}

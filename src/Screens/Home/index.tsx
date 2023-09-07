@@ -27,19 +27,12 @@ const Home = () => {
   
   const isFocusedScreen = useIsFocused();
 
-  const { onOpenModal: handleOpenModal, modal } = useModal()
+  const { onOpenModal, modal } = useModal()
   const { state: {showHeader}, UpdateState } = useContext(AppContext)
 
   const bottomTabBarHeight = useBottomTabBarHeight()
 
   const modalizeRef = useRef<Modalize>(null);
-
-  const onOpenModal = (index: number) => {
-    // if (modal.displayName === 'selfpost') {
-      // modalizeRef.current?.open();
-      handleOpenModal({displayName: 'selfpost', data: {dataPost, indexCurrentPost: index}})
-    // }
-  };
   
   // console.log("Modal: ", modal);
   
@@ -66,13 +59,13 @@ const Home = () => {
   };
 
   const handleToSelfPost= (index: number) => {
-    // console.log(item);
-    // navigation.navigate('selfPost')
-    // dispatch(othersActions.openModal({
-    //   title: "selfPost",
-    //   data: item
-    // }))
-    onOpenModal(index)
+    onOpenModal({modalName: 'selfpost', data: {dataPost, indexCurrentPost: index}})
+  }
+
+  console.log("handleStateModal Home: ", modal.displayName, modal.isOpenModal);
+
+  const handleComment = (index: number) => {
+    onOpenModal({modalName: 'comment', data: {}})
   }
 
   const renderPost = ({item, index}: {item: PostDto, index: number}) => (
@@ -85,6 +78,7 @@ const Home = () => {
       onPressPost={() => handleToSelfPost(index)}
       medias={item?.attributes.medias}
       isCurrentPost={item?.id === currentPost?.id}
+      onComment={() => handleComment(index)}
       // id={item?.id}
     />
   )

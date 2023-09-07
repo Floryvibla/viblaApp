@@ -56,7 +56,7 @@ function StackNavigation() {
   return (
     <>
       {/* <ModalInterno /> */}
-      {isOpenModal && <Modal/>}
+      {<Modal/>}
       <Navigator
         screenOptions={{
           headerShown: false,

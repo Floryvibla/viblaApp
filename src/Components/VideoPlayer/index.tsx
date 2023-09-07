@@ -10,7 +10,8 @@ export type VideoPlayerProps = VideoPlayerPropsStyled & VideoProps &{
     uri?: string
     resize?: keyof typeof ResizeMode
     shadow?: boolean
-    defaultHeight?: boolean
+    defaultHeight?: boolean,
+    onPressVideo?: () => void
 }
 
 export default function VideoPlayerUI({
@@ -21,6 +22,7 @@ export default function VideoPlayerUI({
     height,
     shadow,
     defaultHeight = false,
+    onPressVideo,
     ...rest
 }: VideoPlayerProps) {
 
@@ -57,7 +59,7 @@ export default function VideoPlayerUI({
         isPreview={isPreview}
         height={heightView}
     >
-        <WrapperVideo style={[{height: heightVideoWrapped}]}>
+        <WrapperVideo onPress={onPressVideo} style={[{height: heightVideoWrapped}]}>
             <Video
                 ref={videoRef}
                 onReadyForDisplay={handleOnReadyForDisplay}

@@ -38,7 +38,6 @@ export const AreaText = styled.Pressable<Props>`${({ isSelfPost }) => css`
 `}
 `
 export const ContainerMedia = styled.ScrollView`
-    
 `
 export const ScrollViewAreaBlur = styled.View`
     
