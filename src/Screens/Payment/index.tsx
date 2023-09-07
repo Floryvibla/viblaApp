@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { colors } from "../../Constants/styles"
 import { Area, Text, Touch, Wrapper } from '../../components/styles'
-import HeaderBack from '../../components/Header/HeaderBack'
+import {HeaderBack} from '../../components/Header/HeaderBack'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { chave_pix } from "../../mocks/others.json"
 import CopyToClipboard from '../../components/CopyToClipboard'
+import { Container } from './styles'
 
 const Payment = () => {
 
@@ -12,7 +13,7 @@ const Payment = () => {
 
 
   return (
-    <Area justify="flex-start" align="flex-start" style={{flex: 1}} bgColor={colors.dark}>
+    <Container>
       <HeaderBack auth={false} title="Pagamento" />
       <Wrapper 
         widthStyle={"100%"} 
@@ -67,7 +68,7 @@ const Payment = () => {
           <CopyToClipboard btn />
         </Wrapper>
       </Wrapper>
-    </Area>
+    </Container>
   )
 }
 

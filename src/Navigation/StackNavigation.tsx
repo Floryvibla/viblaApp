@@ -21,7 +21,7 @@ import PostingPhoto from '../Screens/PostingPhoto';
 import { useSelector } from 'react-redux';
 import { Dimensions, Platform } from 'react-native';
 import { colors } from '../Constants/styles';
-import ModalInterno from '../components/Modals/Interno';
+// import ModalInterno from '../components/Modals/Interno';
 import Header from '../components/Header';
 import { useModal } from '../hooks/useModal';
 import { AppContext } from '../context/AppContext';
@@ -55,7 +55,7 @@ function StackNavigation() {
 
   return (
     <>
-      <ModalInterno />
+      {/* <ModalInterno /> */}
       {isOpenModal && <Modal/>}
       <Navigator
         screenOptions={{

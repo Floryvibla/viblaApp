@@ -5,16 +5,18 @@ import { colors } from "../../Constants/styles"
 import * as Linking from 'expo-linking'
 import StoryCard from '../../components/Stories'
 import { Area, ListArea, ScrollArea, Text, Touch, Wrapper } from '../../components/styles'
-import HeaderBack from '../../components/Header/HeaderBack'
+import { Container } from './styles'
+import { HeaderBack } from '../../components/Header/HeaderBack'
 import CardProfile from '../../components/CardProfile'
 import FeedPost from '../../components/Post/FeedPost'
-import { ImageBackground, Pressable, View } from 'react-native'
+import { ImageBackground, Platform, Pressable, View } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import BarFollow from '../../components/Bar/BarFollow'
 import CardEvent from '../../components/Cards/CardEvent'
 import ButtonAction from '../../components/Button';
 import { useDispatch } from 'react-redux';
 import { othersActions } from '../../redux/actions/others.actions';
+import ModalConfirmOrder from '../../components/Modals/ConfirmOrder';
 
 const Event = () => {
 
@@ -26,13 +28,14 @@ const Event = () => {
   'https://scontent.fcgh14-1.fna.fbcdn.net/v/t1.6435-9/84487336_2974456285953289_3959418685327671296_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=340051&_nc_ohc=8KxFKyEP82sAX-DP7RP&_nc_ht=scontent.fcgh14-1.fna&oh=00_AT8l6_9XU2Rtl75iSHxAis-KsMSiD_-feKgBlddlL5XN8Q&oe=634F2104',
   'https://images.sympla.com.br/61856a01f386d-lg.png',
   'https://espacopop.com.br/wp-content/uploads/2022/09/A-Mulher-Rei-820x380.png',
-]
+  ]
 
   const [activeOption, setActiveOption] = useState("Eventos")
+  const [openModal, setOpenModal] = useState<boolean>(false)
 
   const isFollow= activeOption.split(" ")[0] === "Seguindo"
 
-  // console.log(isFollow);
+  const data: any = useRoute().params
 
   const optionsData= [`Eventos`, `Meus ingressos`, `Encerrados`]
 
@@ -46,8 +49,15 @@ const Event = () => {
     Linking.openURL(`http://maps.${company}.com/maps?daddr=${daddr}`);
   }
 
+  const handleCloseModal = () => {
+    setOpenModal(!openModal)
+  }
+
+  console.log("OpenModal: ", openModal);
+  
+
   return (
-    <Area justify="flex-start" align="flex-start" style={{flex: 1, position: "relative"}} bgColor={colors.dark}>
+    <Container >
       <HeaderBack auth={false} title={"Cinema na rua"} />
       <ScrollArea style={{marginBottom: "20%"}}>
         <Wrapper
@@ -56,12 +66,14 @@ const Event = () => {
           marginBottom={0}
           marginTop={0}
         >
-          <ImageBackground 
-            source={{uri: images[4]}}
-            style={{width: "100%", height: "100%"}}
-            resizeMode="cover"
-          >
-          </ImageBackground>
+          {data && data.poster && 
+            <ImageBackground 
+              source={{uri: data.poster}}
+              style={{width: "100%", height: "100%"}}
+              resizeMode="cover"
+            >
+            </ImageBackground>
+          }
         </Wrapper>
         <Wrapper
           align={"flex-start"}
@@ -152,10 +164,11 @@ const Event = () => {
         <ButtonAction 
           title={"Comprar agora!"}
           size={"80%"}
-          onPress={() => dispatch(othersActions.openModal({title: "confirmeOrder"}))}
+          onPress={handleCloseModal}
         />
       </View>
-    </Area>
+      {openModal && <ModalConfirmOrder openModal={openModal} onCloseModal={handleCloseModal} />}
+    </Container>
   )
 }
 

@@ -15,3 +15,8 @@ export const Divisor = styled.FlatList`
     height: 1px;
     background-color: #ccc;
 `
+export const Container = styled.SafeAreaView`
+    flex: 1;
+    background-color: ${colors.dark};
+    position: relative;
+`

@@ -17,7 +17,7 @@ const SlideImage = ({ onScroll, item, active }) => {
       >
        {item.map((item, index) => (
         <Pressable key={index} onPress={() => navigation.navigate("event", {
-          data: item
+          poster: item
         })}>
           <Image
             resizeMode='cover'

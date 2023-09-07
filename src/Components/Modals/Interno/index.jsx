@@ -2,7 +2,7 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import BaseModalInterno from './Base'
-import NotificationWelcome from './NotificationWelcome'
+import NotificationWelcome from './NotificationWelcome/index.jsx'
 import { Background } from '../../styles'
 import Permissions from './Permissions'
 

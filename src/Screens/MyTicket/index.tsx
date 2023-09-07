@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import { colors } from "../../Constants/styles"
 import StoryCard from '../../components/Stories'
 import { Area, ListArea, ScrollArea, Text, Touch, Wrapper } from '../../components/styles'
-import HeaderBack from '../../components/Header/HeaderBack'
+import {HeaderBack} from '../../components/Header/HeaderBack'
 import CardProfile from '../../components/CardProfile'
 import FeedPost from '../../components/Post/FeedPost'
 import { Pressable } from 'react-native'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import BarFollow from '../../components/Bar/BarFollow'
-import CardEvent from '../../components/Cards/CardEvent'
+import {CardEvent} from '../../components/Cards/CardEvent'
+import { Container } from './styles'
 
 const MyTicket = () => {
 
@@ -41,7 +42,7 @@ const MyTicket = () => {
         <CardEvent 
           banner={item}
           onPress={() => navigation.navigate("event", {
-            data: item
+            poster: item
           })}
         />
       </Wrapper>
@@ -50,7 +51,7 @@ const MyTicket = () => {
   )
 
   return (
-    <Area justify="flex-start" align="flex-start" style={{flex: 1}} bgColor={colors.dark}>
+    <Container>
       <HeaderBack auth={false} title="Eventos" />
       <Wrapper 
         widthStyle={"100%"} 
@@ -88,7 +89,7 @@ const MyTicket = () => {
         renderItem={renderPost}
         keyExtractor={item => item}
       />
-    </Area>
+    </Container>
   )
 }
 

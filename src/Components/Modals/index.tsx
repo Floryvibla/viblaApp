@@ -1,13 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Modalize } from 'react-native-modalize';
-import { othersActions } from '../../redux/actions/others.actions';
-import ModalComments from './Comments';
 import { Dimensions, Platform, View, ViewToken } from 'react-native';
-import ConfirmOrder from './ConfirmOrder';
-import ListMySerie from './ListMySerie';
-import { OptionsHeaderPost } from './OptionsHeadePost';
 import { colors } from '../../Constants/styles';
 import SelfPost from '../../Screens/SelfPost';
 import { useModal } from '../../hooks/useModal';

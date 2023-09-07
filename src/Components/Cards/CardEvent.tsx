@@ -20,17 +20,17 @@ export const CardEvent = ({
 
   return (
     <Wrapper
-        // marginTop={0}
-        // width={1.2}
-        // justify={"flex-start"}
+        marginTop={0}
+        width={1.2}
+        justify={"flex-start"}
         style={{
             height: 300, backgroundColor: colors.lightGray, borderRadius: 10
         }}
     >
         <Wrapper 
-            // initial 
-            // marginTop={0} 
-            // marginBottom={0}
+            initial 
+            marginTop={0} 
+            marginBottom={0}
             style={{width: "100%", height: "50%"}}
         >
             <Image
@@ -41,50 +41,50 @@ export const CardEvent = ({
         </Wrapper>
 
         <Wrapper 
-            // initial 
-            // marginTop={0} 
-            // marginBottom={0}
-            // justify={"flex-start"}
+            initial 
+            marginTop={0} 
+            marginBottom={0}
+            justify={"flex-start"}
             style={{width: "100%", height: "50%", padding: 10}}
         >
-            {/* <Text size={16} bold black>Cinema na rua</Text> */}
+            <Text size={16} bold black>Cinema na rua</Text>
             <Wrapper
-                // initial 
-                // marginTop={0} 
-                // marginBottom={0}
-                // direction={""}
-                // justify={"center"}
+                initial 
+                marginTop={0} 
+                marginBottom={0}
+                direction={""}
+                justify={"center"}
                 style={{width: "100%", flexDirection: "row", alignItems: "center", marginTop: 5, justifyContent: "space-between"}}
             >
-                {/* <Text size={16} bold black>Cinema na rua</Text>
-                <Text size={16} bold black>R$ 25,00</Text> */}
+                <Text size={16} bold black>Cinema na rua</Text>
+                <Text size={16} bold black>R$ 25,00</Text>
             </Wrapper>
             <Wrapper
-                // initial 
-                // marginTop={0} 
-                // marginBottom={0}
-                // direction={""}
-                // justify={"center"}
+                initial 
+                marginTop={0} 
+                marginBottom={0}
+                direction={""}
+                justify={"center"}
                 style={{width: "100%", flexDirection: "row", alignItems: "center", marginTop: 5}}
             >
                 <Ionicons name="calendar-outline" size={20} color={colors.goldDark500} style={{marginRight: 5}} />
-                {/* <Text bold size={13} color={"#838383"}>22 Sep 2022 - 19h</Text> */}
+                <Text bold size={13} color={"#838383"}>22 Sep 2022 - 19h</Text>
             </Wrapper>
             <Wrapper
-                // initial 
-                // marginTop={10} 
-                // marginBottom={0}
-                // direction={""}
-                // justify={"center"}
+                initial 
+                marginTop={10} 
+                marginBottom={0}
+                direction={""}
+                justify={"center"}
                 style={{width: "100%", flexDirection: "row", alignItems: "center", marginTop: 5}}
             >
                 <Feather name="map-pin" size={20} color={colors.goldDark500} style={{marginRight: 5}} />
-                {/* <Text bold size={13} color={"#838383"}>SP - São Paulo</Text> */}
+                <Text bold size={13} color={"#838383"}>SP - São Paulo</Text>
             </Wrapper>
-            {/* <ButtonAction 
+            <ButtonAction 
                 title={"Ver mais"}
                 onPress={onPress}
-            /> */}
+            />
         </Wrapper>
 
     </Wrapper>
